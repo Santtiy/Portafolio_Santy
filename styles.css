@@ -282,7 +282,7 @@ blockquote {
 .actions {
   margin-top: 0.1rem;
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) auto;
+  grid-template-columns: 1fr;
   gap: 0.38rem;
 }
 
