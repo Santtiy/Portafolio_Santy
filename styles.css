@@ -669,6 +669,185 @@ textarea:focus {
   background: linear-gradient(110deg, rgba(27, 84, 166, 0.7), rgba(44, 116, 214, 0.5));
 }
 
+.process-panel {
+  margin-bottom: 4rem;
+}
+
+.process-layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 2fr minmax(260px, 1fr);
+  gap: 1rem;
+}
+
+.process-method {
+  overflow: hidden;
+  padding: 0;
+}
+
+.process-method h2 {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.86rem 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.process-steps {
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+}
+
+.process-steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 1rem;
+  padding-bottom: 1.28rem;
+}
+
+.process-steps li:last-child {
+  padding-bottom: 0;
+}
+
+.process-steps li::after {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  width: 1px;
+  height: calc(100% - 26px);
+  background: var(--line);
+}
+
+.process-steps li:last-child::after {
+  display: none;
+}
+
+.step-index {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(11, 20, 47, 0.92);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.process-steps h3 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.15;
+}
+
+.process-steps p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.process-side {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.process-card {
+  padding: 0.9rem;
+}
+
+.process-card h3,
+.principles h3 {
+  margin: 0;
+  padding-bottom: 0.58rem;
+  border-bottom: 1px solid var(--line);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.process-card p {
+  margin: 0.62rem 0 0;
+  color: #d2defe;
+  font-size: 1.45rem;
+  line-height: 1.58;
+}
+
+.process-card ul {
+  margin: 0.68rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.process-card li {
+  position: relative;
+  padding-left: 1rem;
+  color: #d7e5ff;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.process-card li + li {
+  margin-top: 0.38rem;
+}
+
+.process-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 6px;
+  height: 6px;
+  background: #e8efff;
+}
+
+.principles {
+  border-style: dashed;
+  padding: 0.9rem;
+}
+
+.principles h3 {
+  border-bottom: 0;
+  padding-bottom: 0;
+  color: #9fb4ec;
+}
+
+.principles-grid {
+  margin-top: 0.62rem;
+  display: grid;
+  gap: 0.46rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.principles-grid span {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.42rem 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  text-align: center;
+  background: rgba(13, 24, 56, 0.78);
+}
+
+.process-layout,
+.process-method,
+.process-side {
+  animation: revealUp 560ms ease backwards;
+}
+
+.process-layout { animation-delay: 120ms; }
+.process-method { animation-delay: 160ms; }
+.process-side { animation-delay: 220ms; }
+
 @media (max-width: 860px) {
   .topbar {
     align-items: flex-start;
@@ -732,6 +911,26 @@ textarea:focus {
     border-left: 0;
     border-top: 1px solid var(--line);
   }
+
+  .process-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps h3 {
+    font-size: 1.5rem;
+  }
+
+  .process-steps p {
+    font-size: 1.05rem;
+  }
+
+  .process-card p {
+    font-size: 1.2rem;
+  }
+
+  .process-card li {
+    font-size: 0.96rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -765,5 +964,51 @@ textarea:focus {
 
   .project-link {
     flex: 1;
+  }
+
+  .process-method h2 {
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+  }
+
+  .process-steps {
+    padding: 0.75rem;
+  }
+
+  .process-steps li {
+    gap: 0.75rem;
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .process-steps li::after {
+    left: 16px;
+    top: 34px;
+  }
+
+  .step-index {
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+
+  .process-steps h3 {
+    font-size: 1.02rem;
+  }
+
+  .process-steps p {
+    font-size: 0.86rem;
+  }
+
+  .process-card h3,
+  .principles h3 {
+    font-size: 0.8rem;
+  }
+
+  .process-card p {
+    font-size: 0.92rem;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
   }
 }
