@@ -433,6 +433,11 @@ textarea:focus {
   line-height: 1.7;
 }
 
+.about-profile p + p {
+  padding-top: 0;
+  margin-top: -0.3rem;
+}
+
 .about-columns {
   margin-top: 1rem;
   display: grid;
