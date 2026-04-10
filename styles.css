@@ -953,6 +953,182 @@ textarea:focus {
   box-shadow: 0 22px 36px rgba(7, 17, 44, 0.5);
 }
 
+.contact-panel {
+  margin-bottom: 3rem;
+}
+
+.contact-layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 2fr minmax(260px, 1fr);
+  gap: 1rem;
+}
+
+.contact-form-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.contact-form-card h2 {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.86rem 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-form {
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.contact-form span {
+  color: #9db3e8;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.73rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-two-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.68rem 0.76rem;
+  font-size: 0.95rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-submit {
+  width: 100%;
+  justify-content: center;
+  padding-block: 0.82rem;
+  font-size: 0.74rem;
+}
+
+.contact-side {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-info {
+  padding: 0;
+  overflow: hidden;
+}
+
+.contact-info h3,
+.status-card h3 {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.86rem 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.84rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-row {
+  padding: 0.82rem 1rem;
+}
+
+.contact-row + .contact-row {
+  border-top: 1px solid var(--line);
+}
+
+.contact-row small {
+  color: #9db3e8;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-row p {
+  margin: 0.42rem 0 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.cv-card {
+  border-style: dashed;
+  padding: 1rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.72rem;
+}
+
+.cv-card small {
+  color: #9db3e8;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cv-card .btn {
+  min-width: 170px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.status-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.status-card h3::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: #6bc3ff;
+  box-shadow: 0 0 0 4px rgba(107, 195, 255, 0.2);
+  vertical-align: middle;
+}
+
+.status-card p {
+  margin: 0;
+  padding: 0.9rem 1rem 1rem;
+  color: #dbe7ff;
+  line-height: 1.55;
+}
+
+.contact-footer {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.92rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.contact-footer p {
+  margin: 0;
+  color: #93abd9;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+}
+
 @media (max-width: 860px) {
   .topbar {
     align-items: flex-start;
@@ -1047,6 +1223,10 @@ textarea:focus {
 
   .testimonial-card footer p {
     font-size: 1.02rem;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1158,5 +1338,18 @@ textarea:focus {
 
   .testimonial-card footer p {
     font-size: 0.88rem;
+  }
+
+  .contact-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 0.8rem;
+  }
+
+  .contact-footer {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
