@@ -512,6 +512,163 @@ textarea:focus {
 .about-columns { animation-delay: 180ms; }
 .about-metrics { animation-delay: 230ms; }
 
+.projects-panel {
+  margin-bottom: 4rem;
+}
+
+.projects-head {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.projects-head small {
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.project-card {
+  margin-top: 0.7rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-main {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+}
+
+.project-capture {
+  border-right: 1px solid var(--line);
+  min-height: 102px;
+  display: grid;
+  place-items: center;
+  color: #8fa2dd;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-intro {
+  padding: 0.7rem;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.project-title-row h3 {
+  margin: 0;
+  font-size: 1.06rem;
+}
+
+.project-type {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.2rem 0.42rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-intro p {
+  margin: 0.38rem 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 0.76rem;
+}
+
+.project-stack {
+  margin-top: 0.45rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.34rem;
+}
+
+.project-stack span {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.14rem 0.4rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  color: #d7e4ff;
+}
+
+.project-details {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-details article {
+  padding: 0.7rem;
+}
+
+.project-details article + article {
+  border-left: 1px solid var(--line);
+}
+
+.project-details h4 {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  color: #adc2ff;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.project-details p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.project-footer {
+  border-top: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.project-footer > span {
+  color: #9bb3f5;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.38rem;
+}
+
+.project-link {
+  min-width: 92px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.56rem;
+  padding: 0.42rem 0.62rem;
+  background: rgba(8, 16, 40, 0.82);
+}
+
+.project-link-solid {
+  background: linear-gradient(110deg, rgba(27, 84, 166, 0.7), rgba(44, 116, 214, 0.5));
+}
+
 @media (max-width: 860px) {
   .topbar {
     align-items: flex-start;
@@ -556,6 +713,25 @@ textarea:focus {
   .about-metrics article:nth-child(4) {
     border-top: 1px dashed rgba(160, 197, 255, 0.35);
   }
+
+  .project-main {
+    grid-template-columns: 1fr;
+  }
+
+  .project-capture {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    min-height: 68px;
+  }
+
+  .project-details {
+    grid-template-columns: 1fr;
+  }
+
+  .project-details article + article {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
 }
 
 @media (max-width: 520px) {
@@ -566,5 +742,28 @@ textarea:focus {
   .about-metrics article + article {
     border-left: 0;
     border-top: 1px dashed rgba(160, 197, 255, 0.35);
+  }
+
+  .projects-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-actions {
+    width: 100%;
+  }
+
+  .project-link {
+    flex: 1;
   }
 }
