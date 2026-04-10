@@ -6,9 +6,18 @@
   --line: rgba(170, 194, 255, 0.35);
   --text: #f3f5ff;
   --muted: #b8c0e8;
-  --accent: #6e58ff;
-  --accent-2: #2f8bff;
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+  --accent: #2f8bff;
+  --accent-2: #4da3ff;
+  --hover-blue: #4da3ff;
+  --hover-blue-strong: #66b2ff;
+  --hover-text: #ffffff;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow: 0 14px 30px rgba(3, 8, 28, 0.34);
+  --shadow-elevated: 0 18px 36px rgba(4, 10, 34, 0.4);
+  --motion-fast: 0.2s ease;
+  --motion-hover: 0.3s ease;
 }
 
 * {
@@ -21,7 +30,7 @@ body {
   color: var(--text);
   font-family: "Space Grotesk", sans-serif;
   background:
-    radial-gradient(circle at 10% 8%, rgba(110, 88, 255, 0.32), transparent 34%),
+    radial-gradient(circle at 10% 8%, rgba(29, 102, 214, 0.34), transparent 34%),
     radial-gradient(circle at 88% 22%, rgba(47, 139, 255, 0.32), transparent 30%),
     linear-gradient(130deg, var(--bg-1), var(--bg-2) 48%, var(--bg-3));
   overflow-x: hidden;
@@ -64,6 +73,7 @@ body {
   width: 2rem;
   height: 2rem;
   border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.78rem;
   font-weight: 700;
@@ -86,19 +96,20 @@ body {
   text-decoration: none;
   color: var(--muted);
   border: 1px solid transparent;
+  border-radius: var(--radius-sm);
   padding: 0.42rem 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
-  transition: 220ms ease;
+  transition: all var(--motion-fast);
 }
 
 .menu a:hover,
 .menu a.active {
   border-color: var(--line);
   color: var(--text);
-  background: linear-gradient(90deg, rgba(110, 88, 255, 0.24), rgba(47, 139, 255, 0.18));
+  background: linear-gradient(90deg, rgba(29, 102, 214, 0.28), rgba(77, 163, 255, 0.2));
 }
 
 .hero-grid {
@@ -114,14 +125,40 @@ body {
 blockquote,
 .btn {
   border: 1px solid var(--line);
+  border-radius: var(--radius-md);
   background: var(--panel);
   backdrop-filter: blur(4px);
   box-shadow: var(--shadow);
+  transition: all var(--motion-fast);
 }
 
 .left-column {
   display: grid;
   gap: 0.5rem;
+}
+
+/* Bordes estructurales usando los contenedores grid/flex sin mover layout */
+.left-column,
+.right-column,
+.traits,
+.actions {
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.left-column > * + *,
+.right-column > * + * {
+  border-top: 1px solid var(--line);
+}
+
+.traits > * + * {
+  border-left: 1px solid var(--line);
+}
+
+.actions > * + * {
+  border-left: 1px solid var(--line);
 }
 
 .photo-card {
@@ -167,13 +204,28 @@ blockquote,
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border: 1px solid var(--line);
-  padding: 0.3rem 0.5rem;
-  transition: 180ms ease;
+  border-radius: var(--radius-sm);
+  padding: 0.38rem 0.58rem;
+  background: linear-gradient(130deg, rgba(12, 20, 52, 0.72), rgba(13, 30, 74, 0.58));
+  color: var(--text);
+  transition: background-color var(--motion-hover), color var(--motion-hover),
+    border-color var(--motion-hover), transform var(--motion-hover),
+    box-shadow var(--motion-hover);
 }
 
 .links-card a:hover {
-  border-color: rgba(110, 88, 255, 0.7);
-  transform: translateX(4px);
+  background: var(--hover-blue);
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(77, 163, 255, 0.28);
+}
+
+.links-card a:focus-visible {
+  outline: 2px solid var(--hover-blue-strong);
+  outline-offset: 2px;
+  background: var(--hover-blue);
+  color: var(--hover-text);
 }
 
 .right-column {
@@ -235,30 +287,63 @@ blockquote {
   letter-spacing: 0.08em;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.67rem;
+  border-radius: var(--radius-sm);
   padding: 0.68rem 1rem;
-  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+  transition: background-color var(--motion-hover), color var(--motion-hover),
+    border-color var(--motion-hover), transform var(--motion-hover),
+    box-shadow var(--motion-hover);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  background: var(--hover-blue);
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(77, 163, 255, 0.3);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--hover-blue-strong);
+  outline-offset: 2px;
+  background: var(--hover-blue);
+  color: var(--hover-text);
 }
 
 .btn-primary {
-  background: linear-gradient(110deg, rgba(110, 88, 255, 0.45), rgba(47, 139, 255, 0.35));
+  background: linear-gradient(110deg, rgba(27, 84, 166, 0.62), rgba(44, 116, 214, 0.42));
   color: var(--text);
 }
 
 .btn-primary:hover {
-  border-color: rgba(174, 153, 255, 0.8);
+  border-color: var(--hover-blue-strong);
 }
 
 .btn-secondary {
-  background: rgba(8, 12, 32, 0.7);
+  background: rgba(8, 16, 40, 0.78);
   color: var(--text);
 }
 
 .btn-secondary:hover {
   border-color: rgba(47, 139, 255, 0.75);
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: all var(--motion-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(102, 178, 255, 0.9);
+  box-shadow: var(--shadow-elevated);
 }
 
 .scroll-dot {
@@ -269,7 +354,7 @@ blockquote {
   height: 20px;
   border-radius: 50%;
   border: 1px solid var(--line);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(110, 88, 255, 0.35));
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(47, 139, 255, 0.38));
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05), 0 10px 18px rgba(0, 0, 0, 0.35);
 }
 
@@ -312,6 +397,16 @@ blockquote {
 
   .traits {
     grid-template-columns: 1fr;
+  }
+
+  .traits > * + * {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .actions > * + * {
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   .scroll-dot {
