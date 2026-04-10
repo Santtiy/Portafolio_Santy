@@ -113,11 +113,11 @@ body {
 }
 
 .hero-grid {
-  margin-top: 1.55rem;
+  margin-top: 1.35rem;
   display: grid;
   grid-template-columns: minmax(220px, 0.95fr) 2fr;
-  gap: 1.05rem;
-  padding-bottom: 2.5rem;
+  gap: 0.9rem;
+  padding-bottom: 2rem;
 }
 
 .card,
@@ -134,7 +134,7 @@ blockquote,
 
 .left-column {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 /* Bordes estructurales usando los contenedores grid/flex sin mover layout */
@@ -163,27 +163,27 @@ blockquote,
 }
 
 .photo-card {
-  min-height: 220px;
+  min-height: 195px;
   display: grid;
   place-items: center;
   color: #9fb7ec;
   font-family: "IBM Plex Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   background: linear-gradient(165deg, rgba(8, 20, 56, 0.8), rgba(10, 20, 48, 0.65));
 }
 
 .meta-card,
 .links-card {
-  padding: 0.82rem;
+  padding: 0.68rem;
 }
 
 .meta-card h3,
 .links-card h3,
 .trait h3 {
   margin: 0;
-  font-size: 0.69rem;
+  font-size: 0.64rem;
   text-transform: uppercase;
   letter-spacing: 0.11em;
   color: #9ab2e8;
@@ -193,8 +193,8 @@ blockquote,
 .meta-card p,
 .links-card a,
 .trait p {
-  margin: 0.42rem 0 0;
-  font-size: 1.05rem;
+  margin: 0.32rem 0 0;
+  font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
   color: var(--text);
@@ -202,12 +202,12 @@ blockquote,
 
 .links-card a {
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.42rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   border: 1px solid rgba(124, 166, 240, 0.38);
   border-radius: var(--radius-sm);
-  padding: 0.48rem 0.66rem;
+  padding: 0.34rem 0.52rem;
   background: linear-gradient(130deg, rgba(13, 27, 67, 0.8), rgba(14, 36, 88, 0.58));
   color: var(--text);
   transition: background-color var(--motion-hover), color var(--motion-hover),
@@ -232,68 +232,68 @@ blockquote,
 
 .right-column {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.38rem;
 }
 
 .eyebrow {
   margin: 0;
-  padding: 0.34rem 0;
+  padding: 0.28rem 0;
   color: #9db6ec;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.72rem;
+  font-size: 0.62rem;
 }
 
 .name-card {
-  padding: 1.35rem 1.2rem;
+  padding: 0.95rem 0.95rem;
   background: linear-gradient(165deg, rgba(9, 23, 62, 0.86), rgba(9, 23, 58, 0.64));
 }
 
 .name-card h1 {
   margin: 0;
-  font-size: clamp(2.35rem, 5vw, 5rem);
-  line-height: 0.92;
+  font-size: clamp(1.9rem, 4.3vw, 3.7rem);
+  line-height: 0.96;
   letter-spacing: 0.01em;
 }
 
 blockquote {
   margin: 0;
-  padding: 1.15rem 1.2rem;
+  padding: 0.78rem 0.9rem;
   border-left: 2px solid #2998ff;
   border-image: none;
   background: linear-gradient(150deg, rgba(13, 30, 78, 0.82), rgba(9, 23, 57, 0.66));
-  font-size: clamp(1rem, 1.4vw, 1.12rem);
-  line-height: 1.52;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  line-height: 1.45;
   color: #dce8ff;
 }
 
 .traits {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.38rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .trait {
-  padding: 0.95rem 0.88rem;
+  padding: 0.72rem 0.74rem;
   background: linear-gradient(160deg, rgba(10, 24, 63, 0.84), rgba(10, 24, 58, 0.62));
 }
 
 .actions {
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto;
-  gap: 0.45rem;
+  grid-template-columns: minmax(180px, 1fr) auto;
+  gap: 0.38rem;
 }
 
 .btn {
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.74rem;
+  font-size: 0.66rem;
   border-radius: var(--radius-sm);
-  padding: 0.88rem 1.08rem;
+  padding: 0.72rem 0.9rem;
   transition: background-color var(--motion-hover), color var(--motion-hover),
     border-color var(--motion-hover), transform var(--motion-hover),
     box-shadow var(--motion-hover);
