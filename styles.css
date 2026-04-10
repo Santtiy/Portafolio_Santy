@@ -850,20 +850,20 @@ textarea:focus {
 
 .testimonials-panel {
   margin-bottom: 4rem;
-  border: 1px solid rgba(244, 104, 125, 0.16);
+  border: 1px solid rgba(150, 188, 255, 0.22);
   border-radius: var(--radius-lg);
   padding: 1.1rem;
   background:
-    linear-gradient(rgba(246, 99, 128, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(246, 99, 128, 0.06) 1px, transparent 1px),
-    linear-gradient(145deg, rgba(30, 11, 24, 0.9), rgba(22, 10, 21, 0.9));
+    linear-gradient(rgba(116, 172, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(116, 172, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(10, 20, 49, 0.88), rgba(11, 26, 60, 0.9));
   background-size: 22px 22px, 22px 22px, cover;
 }
 
 .testimonials-head {
   margin-bottom: 1rem;
-  border-top-color: rgba(255, 164, 181, 0.28);
-  border-bottom-color: rgba(255, 164, 181, 0.28);
+  border-top-color: rgba(150, 188, 255, 0.25);
+  border-bottom-color: rgba(150, 188, 255, 0.25);
 }
 
 .testimonials-grid {
@@ -874,11 +874,14 @@ textarea:focus {
 
 .testimonial-card {
   position: relative;
-  border: 1px solid rgba(255, 163, 181, 0.16);
+  border: 1px solid rgba(155, 196, 255, 0.2);
   border-radius: var(--radius-lg);
   padding: 1.2rem;
-  background: rgba(35, 13, 29, 0.7);
-  box-shadow: 0 16px 32px rgba(11, 4, 10, 0.38);
+  background: linear-gradient(160deg, rgba(11, 24, 56, 0.72), rgba(12, 32, 74, 0.58));
+  backdrop-filter: blur(4px);
+  box-shadow: 0 16px 32px rgba(4, 10, 30, 0.42);
+  transition: transform var(--motion-hover), box-shadow var(--motion-hover),
+    border-color var(--motion-hover);
 }
 
 .quote-mark {
@@ -887,16 +890,17 @@ textarea:focus {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: #f05b73;
-  color: #1a0e16;
+  background: linear-gradient(140deg, #4da3ff, #78beff);
+  color: #071325;
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.1rem;
   font-weight: 700;
+  box-shadow: 0 8px 16px rgba(56, 139, 255, 0.36);
 }
 
 .testimonial-card .stars {
   margin: 0.9rem 0 0;
-  color: #ff627f;
+  color: #7ebfff;
   letter-spacing: 0.2rem;
   font-size: 1rem;
 }
@@ -908,7 +912,7 @@ textarea:focus {
   background: transparent;
   box-shadow: none;
   font-size: clamp(1.02rem, 1.8vw, 1.28rem);
-  color: #ffe3df;
+  color: #e6efff;
   line-height: 1.5;
 }
 
@@ -925,8 +929,8 @@ textarea:focus {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: rgba(240, 91, 115, 0.14);
-  color: #ff5b76;
+  background: rgba(77, 163, 255, 0.18);
+  color: #76b9ff;
   font-size: 1.02rem;
   font-weight: 700;
 }
@@ -939,14 +943,14 @@ textarea:focus {
 
 .testimonial-card footer p {
   margin: 0.2rem 0 0;
-  color: #e9b9b8;
+  color: #adc6ef;
   font-size: 1.2rem;
 }
 
 .testimonial-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 137, 161, 0.3);
-  box-shadow: 0 20px 34px rgba(13, 3, 11, 0.46);
+  border-color: rgba(118, 185, 255, 0.48);
+  box-shadow: 0 22px 36px rgba(7, 17, 44, 0.5);
 }
 
 @media (max-width: 860px) {
