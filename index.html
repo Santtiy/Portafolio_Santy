@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="top">
     <div class="noise" aria-hidden="true"></div>
 
     <header class="topbar container">
@@ -577,11 +577,55 @@
         </aside>
       </div>
 
-      <footer class="contact-footer">
-        <p>Santiago Bustos Lopez - Portafolio Profesional</p>
-        <p>Colombia - 2026</p>
-      </footer>
     </section>
+
+    <footer class="container site-footer" aria-labelledby="footer-title">
+      <h2 id="footer-title" class="footer-title">Pie del sitio</h2>
+
+      <div class="footer-grid">
+        <section class="footer-col">
+          <h3>Santiago Bustos Lopez</h3>
+          <p>
+            Desarrollador Full-Stack enfocado en arquitectura limpia,
+            integracion de sistemas y experiencias web modernas.
+          </p>
+          <ul class="footer-social" aria-label="Redes sociales">
+            <li><a href="https://github.com/santiagobustos" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://x.com/santiagobustos" target="_blank" rel="noopener noreferrer">Twitter/X</a></li>
+            <li><a href="mailto:santiago.bustos@example.com">Correo</a></li>
+          </ul>
+        </section>
+
+        <nav class="footer-col" aria-label="Navegacion del sitio">
+          <h3>Navegacion</h3>
+          <ul>
+            <li><a href="#top">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mi</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#proceso">Experiencia</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Enlaces de contacto">
+          <h3>Contacto</h3>
+          <ul>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#" aria-label="Descargar Curriculum Vitae">CV</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <p>
+          Copyright <time datetime="2026">2026</time> Santiago Bustos Lopez.
+          Hecho con dedicacion usando HTML, CSS y JavaScript.
+        </p>
+        <a class="footer-top" href="#top" aria-label="Volver al inicio de la pagina">Volver arriba</a>
+      </div>
+    </footer>
 
     <button class="scroll-dot" aria-label="Desplazar"></button>
 
