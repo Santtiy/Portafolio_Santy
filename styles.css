@@ -66,8 +66,14 @@ body {
 }
 
 .container {
-  width: min(1120px, 94vw);
+  width: min(1120px, calc(100vw - 2rem));
   margin: 0 auto;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .topbar {
@@ -260,6 +266,10 @@ blockquote,
   width: 14px;
   text-align: center;
   font-size: 0.78rem;
+}
+
+.links-card a span {
+  overflow-wrap: anywhere;
 }
 
 .links-card a:hover {
@@ -1169,6 +1179,10 @@ textarea:focus {
   gap: 0.42rem;
 }
 
+.contact-row p a span {
+  overflow-wrap: anywhere;
+}
+
 .contact-row p a i {
   width: 14px;
   text-align: center;
@@ -1305,6 +1319,10 @@ textarea:focus {
   font-size: 0.78rem;
 }
 
+.footer-col a span {
+  overflow-wrap: anywhere;
+}
+
 .footer-col a:hover,
 .footer-col a:focus-visible {
   background: var(--hover-blue);
@@ -1364,20 +1382,13 @@ textarea:focus {
 }
 
 @media (max-width: 860px) {
-  .topbar {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .menu {
-    width: 100%;
-    max-width: none;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .hero-grid {
+  .left-column {
     grid-template-columns: 1fr;
+  }
+
+  .photo-card,
+  .links-card {
+    grid-column: auto;
   }
 
   .traits {
@@ -1480,6 +1491,19 @@ textarea:focus {
 }
 
 @media (max-width: 520px) {
+  .container {
+    width: calc(100vw - 1rem);
+  }
+
+  .brand-name {
+    font-size: 0.74rem;
+  }
+
+  .menu a {
+    font-size: 0.62rem;
+    padding: 0.3rem 0.5rem;
+  }
+
   .about-metrics {
     grid-template-columns: 1fr;
   }
