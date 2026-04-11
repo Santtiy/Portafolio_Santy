@@ -41,6 +41,6 @@ const dot = document.querySelector('.scroll-dot');
 
 if (dot) {
   dot.addEventListener('click', () => {
-    window.scrollTo({ top: window.innerHeight * 0.65, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
