@@ -1,4 +1,5 @@
 const menuLinks = document.querySelectorAll('.menu a');
+const menuToggle = document.querySelector('.menu-toggle');
 
 const setActiveMenuLink = (targetId) => {
   menuLinks.forEach((item) => {
@@ -12,8 +13,20 @@ menuLinks.forEach((link) => {
     const href = link.getAttribute('href');
     if (!href || !href.startsWith('#')) return;
     setActiveMenuLink(href.slice(1));
+
+    if (document.body.classList.contains('menu-open')) {
+      document.body.classList.remove('menu-open');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 });
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = document.body.classList.toggle('menu-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
 
 const observedSections = Array.from(menuLinks)
   .map((link) => document.querySelector(link.getAttribute('href')))
