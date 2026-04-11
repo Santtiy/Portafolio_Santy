@@ -863,11 +863,7 @@ textarea:focus {
   border: 1px solid rgba(150, 188, 255, 0.22);
   border-radius: var(--radius-lg);
   padding: 1.1rem;
-  background:
-    linear-gradient(rgba(116, 172, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(116, 172, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(145deg, rgba(10, 20, 49, 0.88), rgba(11, 26, 60, 0.9));
-  background-size: 22px 22px, 22px 22px, cover;
+  background: linear-gradient(145deg, rgba(10, 20, 49, 0.88), rgba(11, 26, 60, 0.9));
 }
 
 .testimonials-head {
