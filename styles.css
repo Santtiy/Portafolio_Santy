@@ -535,7 +535,7 @@ textarea:focus {
 }
 
 .projects-head small {
-  color: var(--muted);
+  color: #c8d9ff;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
@@ -558,7 +558,7 @@ textarea:focus {
   min-height: 102px;
   display: grid;
   place-items: center;
-  color: #8fa2dd;
+  color: #bed3ff;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.65rem;
   letter-spacing: 0.08em;
@@ -579,6 +579,7 @@ textarea:focus {
 .project-title-row h3 {
   margin: 0;
   font-size: 1.06rem;
+  color: #f1f6ff;
 }
 
 .project-type {
@@ -589,11 +590,13 @@ textarea:focus {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  color: #eaf2ff;
+  background: rgba(20, 46, 102, 0.45);
 }
 
 .project-intro p {
   margin: 0.38rem 0 0;
-  color: var(--muted);
+  color: #dce8ff;
   line-height: 1.45;
   font-size: 0.76rem;
 }
@@ -611,7 +614,8 @@ textarea:focus {
   padding: 0.14rem 0.4rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.58rem;
-  color: #d7e4ff;
+  color: #eef4ff;
+  background: rgba(19, 44, 98, 0.4);
 }
 
 .project-details {
@@ -632,14 +636,14 @@ textarea:focus {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.62rem;
-  color: #adc2ff;
+  color: #d8e7ff;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .project-details p {
   margin: 0.4rem 0 0;
-  color: var(--muted);
+  color: #d4e2ff;
   font-size: 0.72rem;
   line-height: 1.5;
 }
@@ -654,7 +658,7 @@ textarea:focus {
 }
 
 .project-footer > span {
-  color: #9bb3f5;
+  color: #cddfff;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.62rem;
   letter-spacing: 0.07em;
@@ -670,6 +674,7 @@ textarea:focus {
   min-width: 92px;
   text-align: center;
   text-decoration: none;
+  color: #ecf3ff;
   font-size: 0.56rem;
   padding: 0.42rem 0.62rem;
   background: rgba(8, 16, 40, 0.82);
@@ -677,6 +682,7 @@ textarea:focus {
 
 .project-link-solid {
   background: linear-gradient(110deg, rgba(27, 84, 166, 0.7), rgba(44, 116, 214, 0.5));
+  color: #ffffff;
 }
 
 .process-panel {
