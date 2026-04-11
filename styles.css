@@ -212,7 +212,9 @@ blockquote,
 }
 
 .links-card a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
   margin-top: 0.42rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -224,6 +226,12 @@ blockquote,
   transition: background-color var(--motion-hover), color var(--motion-hover),
     border-color var(--motion-hover), transform var(--motion-hover),
     box-shadow var(--motion-hover);
+}
+
+.links-card a i {
+  width: 14px;
+  text-align: center;
+  font-size: 0.78rem;
 }
 
 .links-card a:hover {
@@ -1119,6 +1127,15 @@ textarea:focus {
 .contact-row p a {
   color: #e7f0ff;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.contact-row p a i {
+  width: 14px;
+  text-align: center;
+  font-size: 0.78rem;
 }
 
 .contact-row p a:hover,
@@ -1238,9 +1255,17 @@ textarea:focus {
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   padding: 0.22rem 0.38rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   transition: background-color var(--motion-hover), border-color var(--motion-hover),
     color var(--motion-hover), transform var(--motion-hover);
+}
+
+.footer-col a i {
+  width: 14px;
+  text-align: center;
+  font-size: 0.78rem;
 }
 
 .footer-col a:hover,
