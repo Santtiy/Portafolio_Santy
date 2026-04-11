@@ -58,8 +58,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.5rem 0 1rem;
+  gap: 1.25rem;
+  padding: 1.1rem 0 0.78rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -86,14 +86,21 @@ body {
 .brand-name {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem;
+  letter-spacing: 0.08em;
   color: var(--muted);
 }
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.22rem;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  padding: 0.16rem;
+  border: 1px solid rgba(141, 182, 255, 0.18);
+  border-radius: var(--radius-md);
+  background: linear-gradient(140deg, rgba(14, 29, 70, 0.34), rgba(11, 22, 54, 0.22));
 }
 
 .menu a {
@@ -101,11 +108,11 @@ body {
   color: var(--muted);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  padding: 0.42rem 0.62rem;
+  padding: 0.36rem 0.56rem;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   transition: all var(--motion-fast);
 }
 
@@ -872,6 +879,14 @@ textarea:focus {
 .process-method { animation-delay: 160ms; }
 .process-side { animation-delay: 220ms; }
 
+@media (max-width: 1100px) {
+  .menu {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 62%;
+  }
+}
+
 .testimonials-panel {
   margin-bottom: 2.8rem;
   border: 1px solid rgba(150, 188, 255, 0.22);
@@ -1253,6 +1268,13 @@ textarea:focus {
   .topbar {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .menu {
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .hero-grid {
