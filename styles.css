@@ -201,6 +201,18 @@ blockquote,
   font-family: "IBM Plex Mono", monospace;
 }
 
+.trait h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
+.trait h3 i {
+  width: 12px;
+  text-align: center;
+  font-size: 0.66rem;
+}
+
 .meta-card p,
 .links-card a,
 .trait p {
