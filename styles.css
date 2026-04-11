@@ -20,6 +20,10 @@
   --motion-hover: 0.3s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
