@@ -1064,6 +1064,13 @@ textarea:focus {
   justify-content: center;
   padding-block: 0.82rem;
   font-size: 0.74rem;
+  color: #f2f7ff;
+  background: linear-gradient(120deg, rgba(33, 92, 184, 0.74), rgba(53, 131, 238, 0.48));
+}
+
+.contact-submit:hover,
+.contact-submit:focus-visible {
+  color: #ffffff;
 }
 
 .contact-side {
@@ -1109,6 +1116,17 @@ textarea:focus {
   font-weight: 600;
 }
 
+.contact-row p a {
+  color: #e7f0ff;
+  text-decoration: none;
+}
+
+.contact-row p a:hover,
+.contact-row p a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .cv-card {
   border-style: dashed;
   padding: 1rem;
@@ -1129,6 +1147,17 @@ textarea:focus {
   min-width: 170px;
   text-decoration: none;
   text-align: center;
+  color: #f2f7ff;
+  background: linear-gradient(120deg, rgba(33, 92, 184, 0.65), rgba(53, 131, 238, 0.44));
+}
+
+.cv-card .btn:visited {
+  color: #f2f7ff;
+}
+
+.cv-card .btn:hover,
+.cv-card .btn:focus-visible {
+  color: #ffffff;
 }
 
 .status-card {
