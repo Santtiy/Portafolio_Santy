@@ -643,6 +643,15 @@ textarea:focus {
   font-size: 0.58rem;
   color: #eef4ff;
   background: rgba(19, 44, 98, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.26rem;
+}
+
+.project-stack span i {
+  font-size: 0.62rem;
+  width: 10px;
+  text-align: center;
 }
 
 .project-details {
