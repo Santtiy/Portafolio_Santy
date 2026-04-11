@@ -37,6 +37,31 @@ if (observedSections.length > 0) {
   observedSections.forEach((section) => observer.observe(section));
 }
 
+const scrollAnimatedSections = Array.from(
+  document.querySelectorAll('main.container.hero-grid, section.container, footer.container.site-footer')
+);
+
+if (scrollAnimatedSections.length > 0) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('section-in-view', entry.isIntersecting);
+      });
+    },
+    {
+      threshold: 0.22,
+      rootMargin: '0px 0px -8% 0px',
+    }
+  );
+
+  scrollAnimatedSections.forEach((section) => {
+    section.classList.add('scroll-reveal', 'section-in-view');
+    sectionObserver.observe(section);
+  });
+
+  document.body.classList.add('scroll-animate-enabled');
+}
+
 const dot = document.querySelector('.scroll-dot');
 
 if (dot) {

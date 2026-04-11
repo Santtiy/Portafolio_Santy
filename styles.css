@@ -40,6 +40,22 @@ body {
   overflow-x: hidden;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-animate-enabled .scroll-reveal {
+    opacity: 0.2;
+    transform: translateY(22px) scale(0.985);
+    filter: saturate(0.9);
+    transition: opacity 560ms ease, transform 560ms ease, filter 560ms ease;
+    will-change: transform, opacity;
+  }
+
+  .scroll-animate-enabled .scroll-reveal.section-in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
 .noise {
   position: fixed;
   inset: 0;
