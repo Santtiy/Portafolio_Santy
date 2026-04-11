@@ -391,93 +391,93 @@ textarea:focus {
 .right-column > *:nth-child(5) { animation-delay: 280ms; }
 
 .about-panel {
-  margin-bottom: 3rem;
+  margin-bottom: 2.4rem;
 }
 
 .section-head {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 0.92rem 0;
+  padding: 0.74rem 0;
 }
 
 .section-head span {
   display: inline-block;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
 .about-profile {
-  margin-top: 1.1rem;
+  margin-top: 0.82rem;
   padding: 0;
   overflow: hidden;
 }
 
 .about-profile h2 {
   margin: 0;
-  padding: 0.86rem 1rem;
+  padding: 0.7rem 0.84rem;
   border-bottom: 1px solid var(--line);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.11em;
 }
 
 .about-profile p {
   margin: 0;
-  padding: 1.25rem 1.2rem 1.3rem;
+  padding: 0.86rem 0.9rem 0.94rem;
   color: #d6e1ff;
-  font-size: clamp(1rem, 1.6vw, 1.12rem);
-  line-height: 1.7;
+  font-size: clamp(0.88rem, 1.25vw, 0.98rem);
+  line-height: 1.5;
 }
 
 .about-profile p + p {
   padding-top: 0;
-  margin-top: -0.3rem;
+  margin-top: -0.12rem;
 }
 
 .about-columns {
-  margin-top: 1rem;
+  margin-top: 0.74rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.72rem;
+  gap: 0.55rem;
 }
 
 .about-feature {
-  padding: 1rem;
+  padding: 0.74rem;
 }
 
 .feature-index {
   display: inline-grid;
   place-items: center;
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 1.05rem;
+  font-size: 0.84rem;
   font-weight: 700;
 }
 
 .about-feature h3 {
-  margin: 0.92rem 0 0;
+  margin: 0.62rem 0 0;
   font-family: "IBM Plex Mono", monospace;
   text-transform: uppercase;
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
 }
 
 .about-feature p {
-  margin: 0.74rem 0 0;
+  margin: 0.45rem 0 0;
   color: var(--muted);
-  line-height: 1.6;
-  font-size: 1rem;
+  line-height: 1.45;
+  font-size: 0.82rem;
 }
 
 .about-metrics {
-  margin-top: 1.2rem;
+  margin-top: 0.82rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   border: 1px dashed rgba(160, 197, 255, 0.42);
@@ -487,7 +487,7 @@ textarea:focus {
 }
 
 .about-metrics article {
-  padding: 1rem 0.7rem 1.1rem;
+  padding: 0.72rem 0.5rem 0.82rem;
   text-align: center;
 }
 
@@ -497,17 +497,17 @@ textarea:focus {
 
 .about-metrics h4 {
   margin: 0;
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.45rem);
   letter-spacing: 0.02em;
 }
 
 .about-metrics p {
-  margin: 0.36rem 0 0;
+  margin: 0.2rem 0 0;
   color: var(--muted);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.73rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.09em;
 }
 
 .section-head,
