@@ -54,7 +54,11 @@ const scrollAnimatedSections = Array.from(
   document.querySelectorAll('main.container.hero-grid, section.container, footer.container.site-footer')
 );
 
-if (scrollAnimatedSections.length > 0) {
+const canUseSectionAnimations = window.matchMedia(
+  '(min-width: 861px) and (prefers-reduced-motion: no-preference)'
+).matches;
+
+if (scrollAnimatedSections.length > 0 && canUseSectionAnimations) {
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -73,6 +77,8 @@ if (scrollAnimatedSections.length > 0) {
   });
 
   document.body.classList.add('scroll-animate-enabled');
+} else {
+  document.body.classList.remove('scroll-animate-enabled');
 }
 
 const dot = document.querySelector('.scroll-dot');
