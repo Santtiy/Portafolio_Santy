@@ -1686,8 +1686,10 @@ textarea:focus {
 
 @media (max-width: 860px) {
   .topbar {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .menu-toggle {
@@ -1711,6 +1713,23 @@ textarea:focus {
   .menu a {
     width: 100%;
     text-align: left;
+  }
+
+  /* Orden y posición del botón de tema en móvil */
+  .brand {
+    order: 1;
+  }
+
+  .theme-toggle {
+    order: 2;
+  }
+
+  .menu-toggle {
+    order: 3;
+  }
+
+  .menu {
+    order: 4;
   }
 
   .hero-grid {
@@ -1827,7 +1846,7 @@ textarea:focus {
 
 @media (max-width: 520px) {
   .topbar {
-    align-items: flex-start;
+    align-items: center;
     gap: 0.5rem;
   }
 
