@@ -1831,6 +1831,24 @@ textarea:focus {
     display: none;
   }
 
+  /* Optimizaciones de rendimiento en mobile */
+  .card,
+  .name-card,
+  blockquote,
+  .btn {
+    backdrop-filter: none;
+    box-shadow: 0 6px 14px rgba(18, 58, 112, 0.12);
+  }
+
+  .left-column > *,
+  .right-column > * {
+    animation: none;
+  }
+
+  .noise {
+    opacity: 0.04;
+  }
+
   .about-columns {
     grid-template-columns: 1fr;
   }
