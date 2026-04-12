@@ -89,6 +89,17 @@ if (dot) {
   });
 }
 
+// Sticky navbar effect on scroll
+const topbar = document.querySelector('.topbar');
+if (topbar) {
+  const updateTopbar = () => {
+    topbar.classList.toggle('is-scrolled', window.scrollY > 6);
+  };
+
+  updateTopbar();
+  window.addEventListener('scroll', updateTopbar, { passive: true });
+}
+
 /* Theme toggle: alterna entre 'dark' y 'light' y persiste la preferencia */
 (function () {
   const toggle = document.getElementById('theme-toggle');
