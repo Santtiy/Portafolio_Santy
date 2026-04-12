@@ -22,20 +22,225 @@
 
 /* Light theme variables */
 [data-theme="light"] {
-  --bg-1: #ffffff;
-  --bg-2: #f4f6fb;
-  --bg-3: #eaf2ff;
-  --panel: rgba(255, 255, 255, 0.9);
-  --line: rgba(15, 23, 42, 0.06);
-  --text: #071028;
-  --muted: #475569;
-  --accent: #0b5cff;
-  --accent-2: #1e90ff;
-  --hover-blue: #0b5cff;
-  --hover-blue-strong: #0d66d0;
+  --bg-1: #f5f9ff;
+  --bg-2: #e8f2ff;
+  --bg-3: #d9e9ff;
+  --panel: rgba(235, 244, 255, 0.9);
+  --line: rgba(34, 84, 145, 0.16);
+  --text: #0c2340;
+  --muted: #3f5f86;
+  --accent: #2b73da;
+  --accent-2: #5aa4ff;
+  --hover-blue: #2f7ce5;
+  --hover-blue-strong: #2266c7;
   --hover-text: #ffffff;
-  --shadow: 0 8px 18px rgba(9, 30, 66, 0.06);
-  --shadow-elevated: 0 12px 28px rgba(9, 30, 66, 0.08);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --shadow: 0 10px 24px rgba(24, 69, 127, 0.12);
+  --shadow-elevated: 0 16px 34px rgba(24, 69, 127, 0.18);
+}
+
+/* Ajustes visuales adicionales para el modo claro (sobrescribe gradientes oscuros) */
+[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(91, 151, 229, 0.23), transparent 34%),
+    radial-gradient(circle at 86% 16%, rgba(127, 179, 252, 0.24), transparent 30%),
+    linear-gradient(130deg, #f5f9ff 0%, #e8f2ff 48%, #d9e9ff 100%);
+  color: var(--text);
+}
+
+[data-theme="light"] .noise {
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(37, 94, 166, 0.12) 0.5px, transparent 0.5px);
+}
+
+[data-theme="light"] .card,
+[data-theme="light"] .name-card,
+[data-theme="light"] blockquote,
+[data-theme="light"] .btn,
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+[data-theme="light"] .left-column,
+[data-theme="light"] .right-column,
+[data-theme="light"] .traits,
+[data-theme="light"] .actions {
+  outline-color: rgba(46, 101, 171, 0.16);
+  background: linear-gradient(160deg, rgba(210, 229, 252, 0.7), rgba(226, 239, 255, 0.58));
+}
+
+[data-theme="light"] .about-panel,
+[data-theme="light"] .projects-panel,
+[data-theme="light"] .process-panel,
+[data-theme="light"] .contact-panel {
+  border: 1px solid rgba(41, 95, 165, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem;
+  background: linear-gradient(145deg, rgba(231, 242, 255, 0.88), rgba(218, 234, 252, 0.74));
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .name-card {
+  background: linear-gradient(165deg, rgba(102, 152, 223, 0.32), rgba(230, 242, 255, 0.95));
+}
+
+[data-theme="light"] blockquote {
+  background: linear-gradient(150deg, rgba(227, 240, 255, 0.94), rgba(214, 232, 252, 0.92));
+  border-left: 4px solid rgba(43, 115, 218, 0.35);
+  color: #143961;
+}
+
+[data-theme="light"] .trait,
+[data-theme="light"] .project-stack span {
+  background: linear-gradient(160deg, rgba(117, 166, 236, 0.2), rgba(224, 238, 255, 0.96));
+}
+
+[data-theme="light"] .links-card a {
+  background: linear-gradient(130deg, rgba(226, 240, 255, 0.98), rgba(214, 233, 255, 0.96));
+  border: 1px solid rgba(43, 97, 168, 0.2);
+  color: var(--text);
+}
+
+[data-theme="light"] .links-card a:hover {
+  background: var(--hover-blue);
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
+  box-shadow: 0 12px 20px rgba(37, 104, 186, 0.22);
+}
+
+[data-theme="light"] .photo-card {
+  background: linear-gradient(165deg, rgba(82, 140, 220, 0.35), rgba(56, 110, 186, 0.22));
+  color: #1e4a79;
+}
+
+[data-theme="light"] .menu,
+[data-theme="light"] .topbar {
+  border-color: rgba(39, 93, 161, 0.16);
+}
+
+[data-theme="light"] .menu {
+  background: linear-gradient(140deg, rgba(208, 228, 252, 0.92), rgba(221, 238, 255, 0.82));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="light"] .menu a {
+  color: #33577f;
+}
+
+[data-theme="light"] .menu a:hover,
+[data-theme="light"] .menu a.active {
+  color: #10375f;
+  background: linear-gradient(90deg, rgba(95, 154, 229, 0.3), rgba(126, 177, 243, 0.24));
+}
+
+[data-theme="light"] .theme-toggle {
+  background: linear-gradient(180deg, rgba(232, 244, 255, 1), rgba(209, 229, 252, 0.9));
+  border-color: rgba(36, 92, 160, 0.2);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+[data-theme="light"] .btn,
+[data-theme="light"] .project-link,
+[data-theme="light"] .footer-top {
+  background: linear-gradient(120deg, rgba(99, 153, 226, 0.34), rgba(86, 142, 220, 0.26));
+  color: #123e6b;
+}
+
+[data-theme="light"] .btn:hover,
+[data-theme="light"] .project-link:hover,
+[data-theme="light"] .footer-top:hover,
+[data-theme="light"] .footer-col a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(39, 103, 184, 0.2);
+}
+
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .project-link-solid,
+[data-theme="light"] .contact-submit,
+[data-theme="light"] .cv-card .btn {
+  background: linear-gradient(120deg, rgba(49, 120, 214, 0.9), rgba(82, 155, 242, 0.78));
+  color: #f5f9ff;
+}
+
+[data-theme="light"] .section-head,
+[data-theme="light"] .about-profile h2,
+[data-theme="light"] .contact-form-card h2,
+[data-theme="light"] .contact-info h3,
+[data-theme="light"] .status-card h3,
+[data-theme="light"] .process-method h2,
+[data-theme="light"] .process-card h3,
+[data-theme="light"] .principles h3 {
+  color: #1f4d80;
+}
+
+[data-theme="light"] .eyebrow,
+[data-theme="light"] .meta-card h3,
+[data-theme="light"] .links-card h3,
+[data-theme="light"] .trait h3,
+[data-theme="light"] .contact-form span,
+[data-theme="light"] .contact-row small,
+[data-theme="light"] .cv-card small,
+[data-theme="light"] .project-footer > span,
+[data-theme="light"] .projects-head small,
+[data-theme="light"] .project-details h4,
+[data-theme="light"] .project-type {
+  color: #4a6d95;
+}
+
+[data-theme="light"] .about-profile p,
+[data-theme="light"] .project-intro p,
+[data-theme="light"] .project-details p,
+[data-theme="light"] .process-card p,
+[data-theme="light"] .process-card li,
+[data-theme="light"] .testimonial-card blockquote,
+[data-theme="light"] .status-card p,
+[data-theme="light"] .footer-col p,
+[data-theme="light"] .footer-bottom p,
+[data-theme="light"] .contact-row p a,
+[data-theme="light"] .project-link,
+[data-theme="light"] .footer-col a {
+  color: #173f69;
+}
+
+[data-theme="light"] .about-metrics,
+[data-theme="light"] .testimonials-panel,
+[data-theme="light"] .site-footer {
+  border: 1px solid rgba(40, 95, 164, 0.16);
+  background: linear-gradient(145deg, rgba(225, 239, 255, 0.92), rgba(211, 231, 255, 0.82));
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .testimonial-card {
+  border-color: rgba(41, 97, 168, 0.18);
+  background: linear-gradient(160deg, rgba(230, 242, 255, 0.96), rgba(217, 234, 255, 0.86));
+  box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .testimonial-card:hover {
+  border-color: rgba(41, 97, 168, 0.3);
+  box-shadow: var(--shadow-elevated);
+}
+
+[data-theme="light"] .project-title-row h3,
+[data-theme="light"] .testimonial-card h3,
+[data-theme="light"] .name-card h1 {
+  color: #143a63;
+}
+
+[data-theme="light"] .scroll-dot {
+  background: radial-gradient(circle at 30% 30%, #f9fcff, rgba(65, 134, 221, 0.45));
+  border-color: rgba(39, 93, 161, 0.2);
 }
 
 html {
