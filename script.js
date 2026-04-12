@@ -88,3 +88,40 @@ if (dot) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+/* Theme toggle: alterna entre 'dark' y 'light' y persiste la preferencia */
+(function () {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  const THEME_KEY = 'site-theme';
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    const isDark = theme === 'dark';
+    toggle.setAttribute('aria-pressed', String(isDark));
+    // Actualiza icono
+    toggle.innerHTML = isDark
+      ? '<i class="fa-solid fa-moon" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
+  };
+
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved === 'light' || saved === 'dark') {
+    applyTheme(saved);
+  } else {
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch (e) {
+      // no-op
+    }
+  });
+})();
