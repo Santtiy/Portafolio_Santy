@@ -257,6 +257,31 @@
   color: #143a63;
 }
 
+/* Ajustes extra para la sección "Mi proceso" en modo claro */
+[data-theme="light"] .process-steps li::after {
+  background: rgba(44, 100, 173, 0.28);
+}
+
+[data-theme="light"] .step-index {
+  border-color: rgba(44, 100, 173, 0.45);
+  background: linear-gradient(145deg, rgba(187, 213, 248, 0.98), rgba(204, 227, 255, 0.9));
+  color: #173b63;
+}
+
+[data-theme="light"] .process-card {
+  background: linear-gradient(150deg, rgba(229, 240, 255, 0.96), rgba(214, 232, 252, 0.92));
+}
+
+[data-theme="light"] .principles {
+  border-color: rgba(44, 100, 173, 0.3);
+}
+
+[data-theme="light"] .principles-grid span {
+  border-color: rgba(44, 100, 173, 0.35);
+  background: linear-gradient(140deg, rgba(190, 214, 248, 0.98), rgba(209, 229, 255, 0.94));
+  color: #173f69;
+}
+
 [data-theme="light"] .scroll-dot {
   background: radial-gradient(circle at 30% 30%, #f9fcff, rgba(65, 134, 221, 0.45));
   border-color: rgba(39, 93, 161, 0.2);
