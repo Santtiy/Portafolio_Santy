@@ -620,6 +620,11 @@ blockquote,
 .name-card {
   padding: 0.95rem 0.95rem;
   background: linear-gradient(165deg, rgba(9, 23, 62, 0.86), rgba(9, 23, 58, 0.64));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .name-card h1 {
@@ -627,6 +632,15 @@ blockquote,
   font-size: clamp(1.9rem, 4.3vw, 3.7rem);
   line-height: 0.96;
   letter-spacing: 0.01em;
+}
+
+.name-avatar {
+  width: clamp(64px, 12vw, 88px);
+  height: clamp(64px, 12vw, 88px);
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  box-shadow: var(--shadow);
 }
 
 blockquote {
