@@ -1281,6 +1281,7 @@ textarea:focus {
   margin-top: 0.7rem;
   padding: 0;
   overflow: hidden;
+  transition: all 300ms ease-in-out;
 }
 
 .project-main {
@@ -1306,6 +1307,7 @@ textarea:focus {
   object-fit: contain;
   border-radius: 10px;
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+  transition: all 300ms ease-in-out;
 }
 
 .project-intro {
@@ -1362,6 +1364,7 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
   gap: 0.26rem;
+  transition: all 300ms ease-in-out;
 }
 
 .project-stack span i {
@@ -1378,6 +1381,7 @@ textarea:focus {
 
 .project-details article {
   padding: 0.7rem;
+  transition: all 300ms ease-in-out;
 }
 
 .project-details article + article {
@@ -1398,6 +1402,38 @@ textarea:focus {
   color: #d4e2ff;
   font-size: 0.72rem;
   line-height: 1.5;
+  opacity: 0.9;
+  transform: translateY(4px);
+  transition: all 300ms ease-in-out;
+}
+
+@media (hover: hover) {
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .project-card:hover .project-capture img,
+  .project-card:focus-within .project-capture img {
+    transform: translateY(-2px) scale(1.05) rotate(-2deg);
+  }
+
+  .project-card:hover .project-stack span,
+  .project-card:focus-within .project-stack span {
+    transform: translateY(-2px);
+  }
+
+  .project-card:hover .project-details article,
+  .project-card:focus-within .project-details article {
+    transform: translateY(-1px);
+  }
+
+  .project-card:hover .project-details p,
+  .project-card:focus-within .project-details p {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-footer {
@@ -1511,6 +1547,7 @@ textarea:focus {
   grid-template-columns: 42px minmax(0, 1fr);
   gap: 0.85rem;
   padding-bottom: 1rem;
+  transition: all 300ms ease-in-out;
 }
 
 .process-steps li:last-child {
@@ -1546,6 +1583,7 @@ textarea:focus {
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1;
+  transition: all 300ms ease-in-out;
 }
 
 .process-steps h3 {
@@ -1562,6 +1600,30 @@ textarea:focus {
 .process-steps h3 i {
   font-size: 0.82rem;
   color: #8ebfff;
+  transition: all 300ms ease-in-out;
+}
+
+@media (hover: hover) {
+  .process-steps li:hover,
+  .process-steps li:focus-within {
+    transform: translateX(2px);
+  }
+
+  .process-steps li:hover .step-index,
+  .process-steps li:focus-within .step-index {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 4px rgba(77, 163, 255, 0.12);
+  }
+
+  .process-steps li:hover::after,
+  .process-steps li:focus-within::after {
+    background: rgba(122, 170, 239, 0.56);
+  }
+
+  .process-steps li:hover h3 i,
+  .process-steps li:focus-within h3 i {
+    transform: translateY(-1px) scale(1.08);
+  }
 }
 
 .process-steps p {
@@ -1845,6 +1907,7 @@ textarea:focus {
 
 .contact-row {
   padding: 0.82rem 1rem;
+  transition: all 300ms ease-in-out;
 }
 
 .contact-row + .contact-row {
@@ -1871,6 +1934,7 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
+  transition: all 300ms ease-in-out;
 }
 
 .contact-row p a span {
@@ -1881,12 +1945,25 @@ textarea:focus {
   width: 14px;
   text-align: center;
   font-size: 0.78rem;
+  transition: all 300ms ease-in-out;
 }
 
 .contact-row p a:hover,
 .contact-row p a:focus-visible {
   color: #ffffff;
   text-decoration: underline;
+}
+
+@media (hover: hover) {
+  .contact-row:hover,
+  .contact-row:focus-within {
+    background: rgba(77, 163, 255, 0.08);
+  }
+
+  .contact-row:hover p a i,
+  .contact-row:focus-within p a i {
+    transform: translateX(2px);
+  }
 }
 
 .cv-card {
@@ -2003,8 +2080,7 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  transition: background-color var(--motion-hover), border-color var(--motion-hover),
-    color var(--motion-hover), transform var(--motion-hover);
+  transition: all 300ms ease-in-out;
 }
 
 .footer-col a i {
@@ -2014,7 +2090,21 @@ textarea:focus {
 }
 
 .footer-col a span {
+  position: relative;
   overflow-wrap: anywhere;
+}
+
+.footer-col a span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-in-out;
 }
 
 .footer-col a:hover,
@@ -2023,7 +2113,32 @@ textarea:focus {
   border-color: var(--hover-blue-strong);
   color: var(--hover-text);
   transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(77, 163, 255, 0.2);
   outline: none;
+}
+
+.footer-col a:hover span::after,
+.footer-col a:focus-visible span::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-capture img,
+  .project-stack span,
+  .project-details article,
+  .project-details p,
+  .process-steps li,
+  .step-index,
+  .process-steps h3 i,
+  .contact-row,
+  .contact-row p a,
+  .contact-row p a i,
+  .footer-col a,
+  .footer-col a span::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 .footer-social {

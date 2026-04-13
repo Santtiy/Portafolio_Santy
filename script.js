@@ -340,11 +340,7 @@ if (lazyImages.length > 0) {
     ],
   };
 
-  const HobbiesSection = (lang = 'es') => {
-    const hobbiesGrid = document.getElementById('hobbies-grid');
-    if (!hobbiesGrid) return;
-
-    const hobbies = hobbiesByLang[lang] || hobbiesByLang.es;
+  const renderHobbiesWithTemplate = (hobbiesGrid, hobbies) => {
     hobbiesGrid.innerHTML = hobbies
       .map(
         (hobby) => `
@@ -359,6 +355,72 @@ if (lazyImages.length > 0) {
         `
       )
       .join('');
+  };
+
+  const renderHobbiesWithReact = (hobbiesGrid, hobbies) => {
+    const ReactRef = window.React;
+    const ReactDOMRef = window.ReactDOM;
+    if (!ReactRef || !ReactDOMRef) return false;
+
+    const h = ReactRef.createElement;
+    const html = (value) => ({ __html: value || '' });
+
+    const cards = hobbies.map((hobby, index) =>
+      h(
+        'article',
+        {
+          className: `hobby-card card ${hobby.cardClass || ''}`,
+          key: `${hobby.title}-${index}`,
+        },
+        h(
+          'span',
+          {
+            className: `hobby-icon ${hobby.iconClass || ''}`,
+            'aria-hidden': 'true',
+          },
+          h('i', { className: hobby.icon })
+        ),
+        h('h4', { dangerouslySetInnerHTML: html(hobby.title) }),
+        h('p', {
+          className: 'hobby-main',
+          dangerouslySetInnerHTML: html(hobby.description),
+        }),
+        h('p', {
+          className: 'hobby-extra',
+          dangerouslySetInnerHTML: html(hobby.extra),
+        })
+      )
+    );
+
+    const createRoot =
+      ReactDOMRef.createRoot || (ReactDOMRef.default && ReactDOMRef.default.createRoot);
+
+    if (typeof createRoot === 'function') {
+      if (!hobbiesGrid.__hobbiesReactRoot) {
+        hobbiesGrid.__hobbiesReactRoot = createRoot(hobbiesGrid);
+      }
+
+      hobbiesGrid.__hobbiesReactRoot.render(h(ReactRef.Fragment, null, ...cards));
+      return true;
+    }
+
+    if (typeof ReactDOMRef.render === 'function') {
+      ReactDOMRef.render(h(ReactRef.Fragment, null, ...cards), hobbiesGrid);
+      return true;
+    }
+
+    return false;
+  };
+
+  const HobbiesSection = (lang = 'es') => {
+    const hobbiesGrid = document.getElementById('hobbies-grid');
+    if (!hobbiesGrid) return;
+
+    const hobbies = hobbiesByLang[lang] || hobbiesByLang.es;
+    const didRenderWithReact = renderHobbiesWithReact(hobbiesGrid, hobbies);
+    if (!didRenderWithReact) {
+      renderHobbiesWithTemplate(hobbiesGrid, hobbies);
+    }
   };
 
   const translations = {
