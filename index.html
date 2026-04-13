@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio | Santiago Bustos Lopez</title>
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('site-theme');
+          var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -88,7 +99,6 @@
         <div class="card links-card">
           <h3 data-i18n="sidebar.links.title">Enlaces</h3>
           <a href="https://github.com/Santtiy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a>
-          <a href="https://linkedin.com/in/santiagobustos" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
           <a href="mailto:santybuslo@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Email</span></a>
         </div>
       </aside>
@@ -693,10 +703,6 @@
               <p><a href="https://github.com/Santtiy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span>github.com/Santtiy</span></a></p>
             </div>
             <div class="contact-row">
-              <small data-i18n="contact.linkedin">LinkedIn</small>
-              <p><a href="https://linkedin.com/in/santiagobustos" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>linkedin.com/in/santiagobustos</span></a></p>
-            </div>
-            <div class="contact-row">
               <small data-i18n="contact.location">Ubicacion</small>
               <p data-i18n="contact.locationValue">Colombia</p>
             </div>
@@ -728,7 +734,6 @@
           </p>
           <ul class="footer-social" aria-label="Redes sociales" data-i18n-aria="footer.social">
             <li><a href="https://github.com/Santtiy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span data-i18n="footer.github">GitHub</span></a></li>
-            <li><a href="https://x.com/santiagobustos" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>Twitter/X</span></a></li>
             <li><a href="mailto:santybuslo@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span data-i18n="footer.email">Correo</span></a></li>
           </ul>
         </section>

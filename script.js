@@ -306,11 +306,12 @@ if (lazyImages.length > 0) {
       : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
   };
 
-  const saved = localStorage.getItem(THEME_KEY);
-  if (saved === 'light' || saved === 'dark') {
-    applyTheme(saved);
+  const initialTheme = document.documentElement.getAttribute('data-theme');
+  if (initialTheme === 'light' || initialTheme === 'dark') {
+    applyTheme(initialTheme);
   } else {
-    applyTheme('dark');
+    const saved = localStorage.getItem(THEME_KEY);
+    applyTheme(saved === 'light' || saved === 'dark' ? saved : 'dark');
   }
 
   toggle.addEventListener('click', () => {

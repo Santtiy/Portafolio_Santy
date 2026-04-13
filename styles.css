@@ -1034,6 +1034,7 @@ textarea:focus {
 
 .about-panel {
   margin-bottom: 2.4rem;
+  scroll-margin-top: 86px;
 }
 
 .section-head {
@@ -2359,12 +2360,29 @@ textarea:focus {
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 0.7rem;
+    gap: 0.62rem;
     min-height: 64px;
     height: 64px;
-    padding: 0.75rem 1rem;
+    padding: 0 0.9rem;
     border-radius: var(--radius-lg);
     backdrop-filter: none;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+    gap: 0.58rem;
+    max-width: calc(100% - 8.8rem);
+  }
+
+  .brand-name {
+    max-width: 100%;
+    min-width: 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
   }
 
   .topbar-right {
@@ -2372,14 +2390,16 @@ textarea:focus {
     align-items: center;
     width: auto;
     margin-left: auto;
-    gap: 0.55rem;
+    gap: 0.48rem;
     flex: initial;
+    min-width: 0;
   }
 
   .topbar-actions {
     width: auto;
-    gap: 0.55rem;
+    gap: 0.48rem;
     padding-right: 0;
+    flex-wrap: nowrap;
   }
 
   .menu-toggle {
@@ -2593,9 +2613,9 @@ textarea:focus {
 @media (max-width: 520px) {
   .topbar {
     align-items: center;
-    gap: 0.5rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    gap: 0.42rem;
+    padding-left: 0.62rem;
+    padding-right: 0.62rem;
     min-height: 60px;
     height: 60px;
   }
@@ -2604,8 +2624,9 @@ textarea:focus {
     width: calc(100vw - 1rem);
   }
 
-  .brand-name {
-    font-size: 0.62rem;
+  .brand {
+    gap: 0.5rem;
+    max-width: calc(100% - 7.2rem);
   }
 
   .menu-toggle {
@@ -2620,15 +2641,29 @@ textarea:focus {
   }
 
   .lang-toggle {
+    width: 2.35rem;
     min-width: 2.35rem;
     height: 2.35rem;
-    padding: 0 0.35rem;
+    padding: 0;
     font-size: 0.62rem;
   }
 
+  .lang-toggle i {
+    margin-right: 0;
+  }
+
+  .lang-toggle .lang-label {
+    display: none;
+  }
+
+  .topbar-actions {
+    gap: 0.4rem;
+  }
+
   .brand-name {
-    max-width: 38vw;
-    font-size: 0.68rem;
+    max-width: 100%;
+    font-size: 0.6rem;
+    letter-spacing: 0.045em;
   }
 
   .menu {
@@ -2644,9 +2679,9 @@ textarea:focus {
   body.menu-open .menu {
     display: flex;
     position: fixed;
-    right: 0.6rem;
+    right: 0.5rem;
     top: calc(0.6rem + 2.4rem + 0.9rem);
-    width: min(300px, calc(100vw - 1.2rem));
+    width: min(290px, calc(100vw - 1rem));
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-elevated);
     z-index: 1100;
