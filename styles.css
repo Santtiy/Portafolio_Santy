@@ -350,8 +350,14 @@ body {
 }
 
 .container {
-  width: min(1120px, calc(100vw - 2rem));
+  width: min(1420px, calc(100vw - 1.25rem));
   margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    width: min(1560px, calc(100vw - 1.5rem));
+  }
 }
 
 img,
@@ -533,8 +539,8 @@ svg {
 .hero-grid {
   margin-top: 1.35rem;
   display: grid;
-  grid-template-columns: minmax(220px, 0.95fr) 2fr;
-  gap: 0.9rem;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 2.2fr);
+  gap: 0.72rem;
   padding-bottom: 2rem;
 }
 
@@ -552,7 +558,7 @@ blockquote,
 
 .left-column {
   display: grid;
-  gap: 0.4rem;
+  gap: 0.34rem;
 }
 
 /* Bordes estructurales usando los contenedores grid/flex sin mover layout */
@@ -674,7 +680,7 @@ blockquote,
 
 .right-column {
   display: grid;
-  gap: 0.38rem;
+  gap: 0.34rem;
 }
 
 .eyebrow {
@@ -1913,7 +1919,8 @@ textarea:focus {
   }
 
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(220px, 0.86fr) minmax(0, 1.5fr);
+    gap: 0.62rem;
   }
 
   .left-column {
@@ -2042,6 +2049,12 @@ textarea:focus {
   }
 
   .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-grid {
     grid-template-columns: 1fr;
   }
 }
