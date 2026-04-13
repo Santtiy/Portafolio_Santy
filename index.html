@@ -133,14 +133,20 @@
         </div>
 
         <div class="actions">
-          <button type="button" class="btn btn-primary" data-i18n="hero.cta">Explorar proyectos</button>
+          <button type="button" class="btn btn-primary">
+            <i class="fa-solid fa-compass" aria-hidden="true"></i>
+            <span data-i18n="hero.cta">Explorar proyectos</span>
+          </button>
         </div>
       </section>
     </main>
 
     <section class="container about-panel" id="sobre-mi" aria-labelledby="about-title">
       <div class="section-head">
-        <span data-i18n="about.section">02 - SOBRE MI</span>
+        <div class="section-head-title">
+          <i class="fa-solid fa-user-astronaut" aria-hidden="true"></i>
+          <span data-i18n="about.section">02 - SOBRE MI</span>
+        </div>
       </div>
 
       <article class="about-profile card">
@@ -171,7 +177,10 @@
       <div class="about-columns">
         <article class="about-feature card">
           <span class="feature-index">01</span>
-          <h3 data-i18n="about.feature1.title">Desarrollo Backend</h3>
+          <h3>
+            <i class="fa-solid fa-server" aria-hidden="true"></i>
+            <span data-i18n="about.feature1.title">Desarrollo Backend</span>
+          </h3>
           <p data-i18n="about.feature1.body">
             Desarrollo aplicaciones web integrando backend con Python y Django,
             creando APIs REST y gestionando la comunicacion entre servicios. Me
@@ -182,7 +191,10 @@
 
         <article class="about-feature card">
           <span class="feature-index">02</span>
-          <h3 data-i18n="about.feature2.title">Integracion de Sistemas</h3>
+          <h3>
+            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+            <span data-i18n="about.feature2.title">Integracion de Sistemas</span>
+          </h3>
           <p data-i18n="about.feature2.body">
             Diseno soluciones que conectan diferentes tipos de usuarios dentro
             de una misma plataforma, facilitando la interaccion y el flujo de
@@ -193,7 +205,10 @@
 
         <article class="about-feature card">
           <span class="feature-index">03</span>
-          <h3 data-i18n="about.feature3.title">Resolucion de Problemas y Automatizacion</h3>
+          <h3>
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            <span data-i18n="about.feature3.title">Resolucion de Problemas y Automatizacion</span>
+          </h3>
           <p data-i18n="about.feature3.body">
             Implemento soluciones para automatizar procesos y resolver
             problemas tecnicos, desde calculos y simulaciones hasta la
@@ -212,18 +227,22 @@
 
       <div class="about-metrics" aria-label="Metricas profesionales" data-i18n-aria="about.metrics">
         <article>
+          <i class="fa-solid fa-diagram-successor metric-icon" aria-hidden="true"></i>
           <h4>3</h4>
           <p data-i18n="about.metrics.projects">Proyectos completados</p>
         </article>
         <article>
+          <i class="fa-solid fa-code metric-icon" aria-hidden="true"></i>
           <h4>Backend</h4>
           <p data-i18n="about.metrics.level">Nivel de desarrollo</p>
         </article>
         <article>
+          <i class="fa-solid fa-plug-circle-bolt metric-icon" aria-hidden="true"></i>
           <h4>REST</h4>
           <p data-i18n="about.metrics.api">Arquitectura API</p>
         </article>
         <article>
+          <i class="fa-solid fa-database metric-icon" aria-hidden="true"></i>
           <h4>CRUD</h4>
           <p data-i18n="about.metrics.crud">Operaciones implementadas</p>
         </article>
@@ -232,7 +251,10 @@
 
     <section class="container projects-panel" id="proyectos" aria-labelledby="projects-title">
       <div class="section-head projects-head">
-        <span id="projects-title" data-i18n="projects.section">03 - PROYECTOS DESTACADOS</span>
+        <div class="section-head-title">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+          <span id="projects-title" data-i18n="projects.section">03 - PROYECTOS DESTACADOS</span>
+        </div>
         <small data-i18n="projects.subtitle">3 casos de estudio</small>
       </div>
 
@@ -433,18 +455,27 @@
 
     <section class="container process-panel" id="proceso" aria-labelledby="process-title">
       <div class="section-head process-head">
-        <span id="process-title" data-i18n="process.section">04 - MI PROCESO</span>
+        <div class="section-head-title">
+          <i class="fa-solid fa-gears" aria-hidden="true"></i>
+          <span id="process-title" data-i18n="process.section">04 - MI PROCESO</span>
+        </div>
       </div>
 
       <div class="process-layout">
         <article class="process-method card">
-          <h2 data-i18n="process.title">Metodologia de Desarrollo</h2>
+          <h2>
+            <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+            <span data-i18n="process.title">Metodologia de Desarrollo</span>
+          </h2>
 
           <ol class="process-steps" aria-label="Pasos del proceso de trabajo" data-i18n-aria="process.stepsLabel">
             <li>
               <span class="step-index">01</span>
               <div>
-                <h3 data-i18n="process.step1.title">Analisis de Requisitos</h3>
+                <h3>
+                  <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                  <span data-i18n="process.step1.title">Analisis de Requisitos</span>
+                </h3>
                 <p data-i18n="process.step1.body">
                   Identificacion de necesidades, definicion de funcionalidades
                   y alcance del proyecto.
@@ -454,7 +485,10 @@
             <li>
               <span class="step-index">02</span>
               <div>
-                <h3 data-i18n="process.step2.title">Arquitectura del Sistema</h3>
+                <h3>
+                  <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+                  <span data-i18n="process.step2.title">Arquitectura del Sistema</span>
+                </h3>
                 <p data-i18n="process.step2.body">
                   Diseno de estructura frontend-backend, definicion de APIs y
                   flujo de datos.
@@ -464,7 +498,10 @@
             <li>
               <span class="step-index">03</span>
               <div>
-                <h3 data-i18n="process.step3.title">Desarrollo Frontend</h3>
+                <h3>
+                  <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                  <span data-i18n="process.step3.title">Desarrollo Frontend</span>
+                </h3>
                 <p data-i18n="process.step3.body">
                   Implementacion de interfaces interactivas y experiencia de
                   usuario.
@@ -474,7 +511,10 @@
             <li>
               <span class="step-index">04</span>
               <div>
-                <h3 data-i18n="process.step4.title">Integracion Backend</h3>
+                <h3>
+                  <i class="fa-solid fa-plug" aria-hidden="true"></i>
+                  <span data-i18n="process.step4.title">Integracion Backend</span>
+                </h3>
                 <p data-i18n="process.step4.body">
                   Conexion con APIs REST, gestion de datos y logica de negocio.
                 </p>
@@ -483,7 +523,10 @@
             <li>
               <span class="step-index">05</span>
               <div>
-                <h3 data-i18n="process.step5.title">Validacion</h3>
+                <h3>
+                  <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                  <span data-i18n="process.step5.title">Validacion</span>
+                </h3>
                 <p data-i18n="process.step5.body">
                   Pruebas de funcionalidad, validacion de inputs y correccion
                   de errores.
@@ -495,12 +538,15 @@
 
         <aside class="process-side">
           <article class="principles card">
-            <h3 data-i18n="process.principles.title">Principios</h3>
+            <h3>
+              <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+              <span data-i18n="process.principles.title">Principios</span>
+            </h3>
             <div class="principles-grid">
-              <span class="principle-tag" data-i18n="process.principles.item1">Modularidad</span>
-              <span class="principle-tag" data-i18n="process.principles.item2">Escalabilidad</span>
-              <span class="principle-tag" data-i18n="process.principles.item3">Usabilidad</span>
-              <span class="principle-tag" data-i18n="process.principles.item4">Mantenibilidad</span>
+              <span class="principle-tag"><i class="fa-solid fa-cubes" aria-hidden="true"></i><span data-i18n="process.principles.item1">Modularidad</span></span>
+              <span class="principle-tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span data-i18n="process.principles.item2">Escalabilidad</span></span>
+              <span class="principle-tag"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><span data-i18n="process.principles.item3">Usabilidad</span></span>
+              <span class="principle-tag"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span data-i18n="process.principles.item4">Mantenibilidad</span></span>
             </div>
           </article>
         </aside>
@@ -509,7 +555,10 @@
 
     <section class="container testimonials-panel" id="testimonios" aria-labelledby="testimonials-title">
       <div class="section-head testimonials-head">
-        <span id="testimonials-title" data-i18n="testimonials.section">05 - TESTIMONIOS</span>
+        <div class="section-head-title">
+          <i class="fa-solid fa-comments" aria-hidden="true"></i>
+          <span id="testimonials-title" data-i18n="testimonials.section">05 - TESTIMONIOS</span>
+        </div>
       </div>
 
       <div class="testimonials-grid">
@@ -586,7 +635,10 @@
 
     <section class="container contact-panel" id="contacto" aria-labelledby="contact-title">
       <div class="section-head">
-        <span id="contact-title" data-i18n="contact.section">06 - CONTACTO</span>
+        <div class="section-head-title">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          <span id="contact-title" data-i18n="contact.section">06 - CONTACTO</span>
+        </div>
       </div>
 
       <div class="contact-layout">
