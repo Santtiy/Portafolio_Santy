@@ -1107,18 +1107,27 @@ textarea:focus {
 
 .hobby-card {
   padding: 0.78rem;
-  min-height: 155px;
+  min-height: 170px;
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 1fr auto;
   align-content: start;
   gap: 0.48rem;
-  transition: transform var(--motion-hover), box-shadow var(--motion-hover),
-    border-color var(--motion-hover);
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
 }
 
 .hobby-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-elevated);
+}
+
+.hobby-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.hobby-card--glow:hover {
+  box-shadow: var(--shadow-elevated), 0 0 18px rgba(77, 163, 255, 0.22);
 }
 
 .hobby-icon {
@@ -1134,6 +1143,7 @@ textarea:focus {
 
 .hobby-icon i {
   font-size: 0.92rem;
+  transition: all 300ms ease-in-out;
 }
 
 .hobby-card h4 {
@@ -1143,11 +1153,94 @@ textarea:focus {
   color: var(--text);
 }
 
-.hobby-card p {
+.hobby-main {
   margin: 0;
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.45;
+}
+
+.hobby-extra {
+  margin: 0.05rem 0 0;
+  color: var(--text);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  transform: translateY(8px);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+}
+
+.hobby-card:hover .hobby-extra,
+.hobby-card:focus-within .hobby-extra {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 2rem;
+}
+
+.hobby-card:hover .hobby-icon--music i,
+.hobby-card:focus-within .hobby-icon--music i {
+  animation: hobbyPulse 1.2s ease-in-out infinite;
+}
+
+.hobby-card:hover .hobby-icon--walk i,
+.hobby-card:focus-within .hobby-icon--walk i {
+  transform: translateX(3px);
+}
+
+.hobby-card:hover .hobby-icon--games i,
+.hobby-card:focus-within .hobby-icon--games i {
+  transform: scale(1.06);
+}
+
+.hobby-card:hover .hobby-icon--gym i,
+.hobby-card:focus-within .hobby-icon--gym i {
+  transform: scale(1.12);
+}
+
+.hobby-card:hover .hobby-icon--bike i,
+.hobby-card:focus-within .hobby-icon--bike i {
+  transform: translateX(2px) rotate(-6deg);
+}
+
+.hobby-card:hover .hobby-icon--basket i,
+.hobby-card:focus-within .hobby-icon--basket i {
+  animation: hobbyBounce 0.9s ease-in-out infinite;
+}
+
+.hobby-card:hover .hobby-icon--cinema i,
+.hobby-card:focus-within .hobby-icon--cinema i {
+  opacity: 0.7;
+}
+
+@keyframes hobbyPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes hobbyBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@media (hover: none) {
+  .hobby-extra {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2rem;
+  }
 }
 
 .section-head,

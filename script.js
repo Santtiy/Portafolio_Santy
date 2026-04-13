@@ -237,75 +237,105 @@ if (lazyImages.length > 0) {
     es: [
       {
         icon: 'fa-solid fa-music',
+        iconClass: 'hobby-icon--music',
         title: 'M&uacute;sica',
         description: 'Me gusta mucho escuchar m&uacute;sica en mis tiempos libres.',
+        extra: 'Lo-fi • Rock • Instrumental',
       },
       {
         icon: 'fa-solid fa-shoe-prints',
+        iconClass: 'hobby-icon--walk',
         title: 'Caminar',
         description: 'Me gusta salir a caminar a veces para despejar mi cabeza.',
+        extra: 'Ideal para despejar la mente',
       },
       {
         icon: 'fa-solid fa-gamepad',
+        iconClass: 'hobby-icon--games',
+        cardClass: 'hobby-card--glow',
         title: 'Videojuegos',
         description: 'Estoy muy interesado en los videojuegos y mundos interactivos.',
+        extra: 'RPG • Exploracion • Souls-like',
       },
       {
         icon: 'fa-solid fa-dumbbell',
+        iconClass: 'hobby-icon--gym',
         title: 'Gym',
         description: 'Me gusta hacer ejercicio de vez en cuando para mantenerme activo.',
+        extra: 'Entrenamiento ocasional',
       },
       {
         icon: 'fa-solid fa-bicycle',
+        iconClass: 'hobby-icon--bike',
         title: 'Bicicleta',
         description: 'Me gusta salir a dar paseos en bicicleta.',
+        extra: 'Paseos y exploracion',
       },
       {
         icon: 'fa-solid fa-basketball',
+        iconClass: 'hobby-icon--basket',
         title: 'B&aacute;squet',
         description: 'Me gusta jugar basketball en mis tiempos libres.',
+        extra: 'Deporte recreativo',
       },
       {
         icon: 'fa-solid fa-film',
+        iconClass: 'hobby-icon--cinema',
         title: 'Pel&iacute;culas y Anime',
         description: 'Me gusta mucho ver todo tipo de pel&iacute;culas y animaci&oacute;n japonesa.',
+        extra: 'Cine • Anime • Sci-fi',
       },
     ],
     en: [
       {
         icon: 'fa-solid fa-music',
+        iconClass: 'hobby-icon--music',
         title: 'Music',
         description: 'I really enjoy listening to music in my free time.',
+        extra: 'Lo-fi • Rock • Instrumental',
       },
       {
         icon: 'fa-solid fa-shoe-prints',
+        iconClass: 'hobby-icon--walk',
         title: 'Walking',
         description: 'I like going for walks to clear my mind.',
+        extra: 'Ideal to clear the mind',
       },
       {
         icon: 'fa-solid fa-gamepad',
+        iconClass: 'hobby-icon--games',
+        cardClass: 'hobby-card--glow',
         title: 'Video Games',
         description: 'I am very interested in video games and interactive worlds.',
+        extra: 'RPG • Exploration • Souls-like',
       },
       {
         icon: 'fa-solid fa-dumbbell',
+        iconClass: 'hobby-icon--gym',
         title: 'Gym',
         description: 'I like exercising from time to time to stay active.',
+        extra: 'Occasional training',
       },
       {
         icon: 'fa-solid fa-bicycle',
+        iconClass: 'hobby-icon--bike',
         title: 'Cycling',
         description: 'I enjoy going on bike rides.',
+        extra: 'Rides and exploration',
       },
       {
         icon: 'fa-solid fa-basketball',
+        iconClass: 'hobby-icon--basket',
         title: 'Basketball',
         description: 'I like playing basketball in my free time.',
+        extra: 'Recreational sport',
       },
       {
         icon: 'fa-solid fa-film',
+        iconClass: 'hobby-icon--cinema',
         title: 'Movies and Anime',
         description: 'I really enjoy watching all kinds of movies and Japanese animation.',
+        extra: 'Cinema • Anime • Sci-fi',
       },
     ],
   };
@@ -318,12 +348,13 @@ if (lazyImages.length > 0) {
     hobbiesGrid.innerHTML = hobbies
       .map(
         (hobby) => `
-          <article class="hobby-card card">
-            <span class="hobby-icon" aria-hidden="true">
+          <article class="hobby-card card ${hobby.cardClass || ''}">
+            <span class="hobby-icon ${hobby.iconClass || ''}" aria-hidden="true">
               <i class="${hobby.icon}"></i>
             </span>
             <h4>${hobby.title}</h4>
-            <p>${hobby.description}</p>
+            <p class="hobby-main">${hobby.description}</p>
+            <p class="hobby-extra">${hobby.extra || ''}</p>
           </article>
         `
       )
