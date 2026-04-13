@@ -1995,6 +1995,44 @@ textarea:focus {
   min-height: 140px;
 }
 
+.contact-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-form-feedback {
+  margin: 0;
+  min-height: 1.2rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: #9db3e8;
+}
+
+.contact-form-feedback.is-success {
+  color: #8fd6a8;
+}
+
+.contact-form-feedback.is-error {
+  color: #ff9fb4;
+}
+
+[data-theme="light"] .contact-form-feedback {
+  color: #3f628e;
+}
+
+[data-theme="light"] .contact-form-feedback.is-success {
+  color: #2e8f66;
+}
+
+[data-theme="light"] .contact-form-feedback.is-error {
+  color: #bc3f63;
+}
+
 .contact-submit {
   width: 100%;
   justify-content: center;

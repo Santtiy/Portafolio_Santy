@@ -645,30 +645,34 @@
         <article class="contact-form-card card">
           <h2 data-i18n="contact.title">Enviame un mensaje</h2>
 
-          <form class="contact-form" action="#" method="post">
+          <form class="contact-form" action="https://formsubmit.co/ajax/santybuslo@gmail.com" method="post" novalidate>
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde portafolio" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" class="contact-hp" tabindex="-1" autocomplete="off" />
             <div class="contact-two-cols">
               <label>
                 <span data-i18n="contact.fullname">Nombre completo</span>
-                <input type="text" name="nombre" autocomplete="name" />
+                <input type="text" name="nombre" autocomplete="name" required minlength="3" />
               </label>
 
               <label>
                 <span data-i18n="contact.email">Email</span>
-                <input type="email" name="email" autocomplete="email" />
+                <input type="email" name="email" autocomplete="email" required />
               </label>
             </div>
 
             <label>
               <span data-i18n="contact.subject">Asunto</span>
-              <input type="text" name="asunto" />
+              <input type="text" name="asunto" required minlength="4" />
             </label>
 
             <label>
               <span data-i18n="contact.message">Mensaje</span>
-              <textarea name="mensaje" rows="6"></textarea>
+              <textarea name="mensaje" rows="6" required minlength="12"></textarea>
             </label>
 
             <button type="submit" class="btn contact-submit" data-i18n="contact.send">Enviar mensaje</button>
+            <p class="contact-form-feedback" aria-live="polite"></p>
           </form>
         </article>
 

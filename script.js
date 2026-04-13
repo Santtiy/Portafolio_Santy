@@ -90,6 +90,105 @@ if (dot) {
   });
 }
 
+// Contact form: envio real con FormSubmit (sin backend propio), validacion basica y feedback al usuario.
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm instanceof HTMLFormElement) {
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const feedback = contactForm.querySelector('.contact-form-feedback');
+
+  const setFeedback = (type, message) => {
+    if (!(feedback instanceof HTMLElement)) return;
+    feedback.textContent = message;
+    feedback.classList.remove('is-success', 'is-error');
+    if (type) {
+      feedback.classList.add(type);
+    }
+  };
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const isEnglish = document.documentElement.getAttribute('lang') === 'en';
+    const messages = isEnglish
+      ? {
+          invalid: 'Please complete all fields correctly.',
+          sending: 'Sending message...',
+          success: 'Message sent successfully. Thank you!',
+          error: 'We could not send your message. Please try again.',
+        }
+      : {
+          invalid: 'Completa correctamente todos los campos.',
+          sending: 'Enviando mensaje...',
+          success: 'Mensaje enviado correctamente. Gracias!',
+          error: 'No pudimos enviar tu mensaje. Intentalo de nuevo.',
+        };
+
+    const formData = new FormData(contactForm);
+    const honey = String(formData.get('_honey') || '').trim();
+    if (honey) {
+      // Honeypot para bots: simulamos envio exitoso y no hacemos request.
+      contactForm.reset();
+      setFeedback('is-success', messages.success);
+      return;
+    }
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      setFeedback('is-error', messages.invalid);
+      return;
+    }
+
+    const endpoint = contactForm.getAttribute('action') || '';
+    if (!endpoint) {
+      setFeedback('is-error', messages.error);
+      return;
+    }
+
+    const previousLabel =
+      submitButton instanceof HTMLButtonElement ? submitButton.textContent : '';
+
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+      submitButton.textContent = messages.sending;
+    }
+
+    setFeedback('', messages.sending);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      const payload = await response.json().catch(() => null);
+
+      if (response.ok) {
+        contactForm.reset();
+        setFeedback('is-success', messages.success);
+      } else {
+        const apiError =
+          payload && Array.isArray(payload.errors) && payload.errors.length > 0
+            ? payload.errors.map((item) => item.message).join(' ')
+            : payload && payload.message
+            ? payload.message
+            : messages.error;
+        setFeedback('is-error', apiError);
+      }
+    } catch (error) {
+      setFeedback('is-error', messages.error);
+    } finally {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+        submitButton.textContent = previousLabel || (isEnglish ? 'Send message' : 'Enviar mensaje');
+      }
+    }
+  });
+}
+
 // Sticky navbar effect on scroll
 const topbar = document.querySelector('.topbar');
 if (topbar) {
