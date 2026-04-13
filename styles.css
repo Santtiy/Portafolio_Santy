@@ -1888,6 +1888,7 @@ textarea:focus {
     gap: 0.75rem;
     padding: 0.75rem 1rem;
     border-radius: 0;
+    backdrop-filter: none;
   }
 
   .menu-toggle {
@@ -1911,7 +1912,7 @@ textarea:focus {
     padding: 0.5rem;
     border: 1px solid rgba(141, 182, 255, 0.28);
     background: linear-gradient(145deg, rgba(9, 22, 58, 0.96), rgba(10, 27, 70, 0.92));
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
   }
 
   body.menu-open .menu {
@@ -1999,7 +2000,16 @@ textarea:focus {
   }
 
   .noise {
-    opacity: 0.04;
+    display: none;
+  }
+
+  .project-capture img {
+    filter: none;
+  }
+
+  .process-method,
+  .principles {
+    backdrop-filter: none;
   }
 
   .about-columns {

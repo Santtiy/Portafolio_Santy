@@ -1,5 +1,6 @@
 const menuLinks = document.querySelectorAll('.menu a');
 const menuToggle = document.querySelector('.menu-toggle');
+const isMobileViewport = window.matchMedia('(max-width: 860px)').matches;
 
 const setActiveMenuLink = (targetId) => {
   menuLinks.forEach((item) => {
@@ -92,12 +93,101 @@ if (dot) {
 // Sticky navbar effect on scroll
 const topbar = document.querySelector('.topbar');
 if (topbar) {
-  const updateTopbar = () => {
-    topbar.classList.toggle('is-scrolled', window.scrollY > 6);
+  if (isMobileViewport) {
+    topbar.classList.remove('is-scrolled');
+  } else {
+    const updateTopbar = () => {
+      topbar.classList.toggle('is-scrolled', window.scrollY > 6);
+    };
+
+    updateTopbar();
+    window.addEventListener('scroll', updateTopbar, { passive: true });
+  }
+}
+
+// Pre-carga imagenes lazy antes de entrar al viewport para evitar retraso visual al hacer scroll.
+const lazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+
+if (lazyImages.length > 0) {
+  const networkInfo = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveDataEnabled = Boolean(networkInfo && networkInfo.saveData);
+  const effectiveType = (networkInfo && networkInfo.effectiveType) || '';
+  const slowNetwork = /2g|3g/i.test(effectiveType);
+  const lowPowerDevice =
+    (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4) ||
+    (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4);
+
+  const preloadBySectionFactor = {
+    top: 0.9,
+    'sobre-mi': 1.05,
+    proyectos: 1.25,
+    proceso: 1.2,
+    testimonios: 1.15,
+    contacto: 1.15,
   };
 
-  updateTopbar();
-  window.addEventListener('scroll', updateTopbar, { passive: true });
+  const getImageSectionId = (img) => {
+    const section = img.closest('section.container[id], main.container.hero-grid, footer.container.site-footer');
+    if (!section) return 'default';
+    if (section.id) return section.id;
+    if (section.matches('main.container.hero-grid')) return 'top';
+    if (section.matches('footer.container.site-footer')) return 'contacto';
+    return 'default';
+  };
+
+  const getPreloadDistance = (sectionId) => {
+    const viewportHeight = window.innerHeight || 800;
+    const baseDistance = isMobileViewport
+      ? Math.round(viewportHeight * (saveDataEnabled || slowNetwork ? 1.9 : 1.45))
+      : Math.round(viewportHeight * 0.85);
+
+    const sectionFactor = preloadBySectionFactor[sectionId] || 1;
+    const deviceFactor = lowPowerDevice ? 1.22 : 1;
+    return Math.round(baseDistance * sectionFactor * deviceFactor);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observerByMargin = new Map();
+
+    const handleImageWarmup = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const img = entry.target;
+        img.loading = 'eager';
+        img.decoding = 'async';
+        observer.unobserve(img);
+      });
+    };
+
+    const getObserverForMargin = (marginPx) => {
+      if (!observerByMargin.has(marginPx)) {
+        observerByMargin.set(
+          marginPx,
+          new IntersectionObserver(handleImageWarmup, {
+            rootMargin: `${marginPx}px 0px`,
+            threshold: 0.01,
+          })
+        );
+      }
+
+      return observerByMargin.get(marginPx);
+    };
+
+    lazyImages.forEach((img) => {
+      const sectionId = getImageSectionId(img);
+      const preloadDistance = getPreloadDistance(sectionId);
+      const observer = getObserverForMargin(preloadDistance);
+      observer.observe(img);
+    });
+  } else {
+    lazyImages.forEach((img) => {
+      img.decoding = 'async';
+      if (isMobileViewport) {
+        img.loading = 'eager';
+      }
+    });
+  }
 }
 
 /* Theme toggle: alterna entre 'dark' y 'light' y persiste la preferencia */
