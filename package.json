@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/script.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scripts/prepare-public.cjs",
     "dev": "tsc -w",
     "watch": "tsc -w",
     "typecheck": "tsc --noEmit",
