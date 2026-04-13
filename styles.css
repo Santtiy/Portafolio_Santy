@@ -299,6 +299,29 @@
   color: #2e4f74;
 }
 
+[data-theme="light"] .process-panel {
+  border-color: rgba(118, 145, 178, 0.24) !important;
+  background: linear-gradient(150deg, rgba(231, 239, 249, 0.95), rgba(221, 232, 245, 0.92)) !important;
+  box-shadow: 0 10px 30px rgba(80, 110, 150, 0.1) !important;
+  color: #1f3858;
+}
+
+[data-theme="light"] .process-panel .process-head {
+  border-bottom-color: rgba(111, 142, 181, 0.24);
+}
+
+[data-theme="light"] .process-panel .process-head span {
+  color: #2b4d73;
+}
+
+[data-theme="light"] .process-panel .process-steps h3 {
+  color: #1f3d61;
+}
+
+[data-theme="light"] .process-panel .process-steps p {
+  color: #557091;
+}
+
 [data-theme="light"] .scroll-dot {
   background: radial-gradient(circle at 30% 30%, #f9fcff, rgba(65, 134, 221, 0.45));
   border-color: rgba(39, 93, 161, 0.2);
@@ -1254,22 +1277,22 @@ textarea:focus {
 .process-panel {
   margin-bottom: 3rem;
   padding: 1.25rem !important;
-  border: 1px solid rgba(118, 145, 178, 0.24) !important;
+  border: 1px solid rgba(122, 170, 239, 0.24) !important;
   border-radius: 28px !important;
-  background: linear-gradient(150deg, rgba(231, 239, 249, 0.95), rgba(221, 232, 245, 0.92)) !important;
-  box-shadow: 0 10px 30px rgba(80, 110, 150, 0.1) !important;
-  color: #1f3858;
+  background: linear-gradient(150deg, rgba(10, 21, 52, 0.9), rgba(9, 19, 46, 0.88)) !important;
+  box-shadow: 0 12px 30px rgba(3, 12, 34, 0.42) !important;
+  color: var(--text);
 }
 
 .process-head {
   margin-bottom: 1rem;
   padding: 0 0 0.82rem;
   border-top: 0;
-  border-bottom: 1px solid rgba(111, 142, 181, 0.24);
+  border-bottom: 1px solid var(--line);
 }
 
 .process-head span {
-  color: #2b4d73;
+  color: #c8dcff;
   font-size: 0.76rem;
   letter-spacing: 0.14em;
 }
@@ -1285,19 +1308,19 @@ textarea:focus {
 .principles {
   overflow: hidden;
   padding: 0;
-  border: 1px solid rgba(120, 148, 183, 0.24) !important;
+  border: 1px solid rgba(122, 170, 239, 0.22) !important;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.34) !important;
+  background: linear-gradient(165deg, rgba(12, 28, 66, 0.78), rgba(9, 22, 54, 0.7)) !important;
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 24px rgba(90, 120, 160, 0.1) !important;
+  box-shadow: 0 10px 24px rgba(2, 10, 30, 0.4) !important;
 }
 
 .process-method h2,
 .principles h3 {
   margin: 0;
-  border-bottom: 1px solid rgba(111, 142, 181, 0.2);
+  border-bottom: 1px solid rgba(122, 170, 239, 0.2);
   padding: 0.94rem 1rem;
-  color: #2a4f76;
+  color: #c9defe;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.82rem;
   text-transform: uppercase;
@@ -1329,7 +1352,7 @@ textarea:focus {
   top: 40px;
   width: 1px;
   height: calc(100% - 22px);
-  background: rgba(102, 133, 169, 0.3);
+  background: rgba(122, 170, 239, 0.3);
 }
 
 .process-steps li:last-child::after {
@@ -1341,12 +1364,12 @@ textarea:focus {
   z-index: 1;
   width: 42px;
   height: 34px;
-  border: 1px solid rgba(108, 140, 178, 0.34);
+  border: 1px solid rgba(122, 170, 239, 0.35);
   border-radius: 11px;
   display: inline-grid;
   place-items: center;
-  background: rgba(246, 251, 255, 0.74);
-  color: #2f557f;
+  background: rgba(18, 37, 81, 0.72);
+  color: #d7e8ff;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.88rem;
   font-weight: 700;
@@ -1355,7 +1378,7 @@ textarea:focus {
 
 .process-steps h3 {
   margin: 0;
-  color: #1f3d61;
+  color: #e8f2ff;
   font-size: clamp(1.02rem, 1.65vw, 1.24rem);
   line-height: 1.22;
   font-weight: 700;
@@ -1363,7 +1386,7 @@ textarea:focus {
 
 .process-steps p {
   margin: 0.32rem 0 0;
-  color: #557091;
+  color: #b2c9ea;
   font-size: 0.92rem;
   line-height: 1.48;
 }
@@ -1388,11 +1411,11 @@ textarea:focus {
   justify-content: center;
   align-items: center;
   min-height: 44px;
-  border: 1px solid rgba(111, 142, 181, 0.3);
+  border: 1px solid rgba(122, 170, 239, 0.26);
   border-radius: 12px;
   padding: 0.55rem 0.6rem;
-  background: rgba(248, 252, 255, 0.58);
-  color: #2e4f74;
+  background: rgba(14, 34, 78, 0.6);
+  color: #d2e5ff;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.74rem;
   letter-spacing: 0.05em;
@@ -1403,9 +1426,9 @@ textarea:focus {
 
 .principle-tag:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.78);
-  border-color: rgba(101, 132, 168, 0.45);
-  box-shadow: 0 8px 18px rgba(90, 120, 160, 0.12);
+  background: rgba(25, 57, 121, 0.78);
+  border-color: rgba(126, 176, 247, 0.45);
+  box-shadow: 0 10px 20px rgba(7, 21, 56, 0.44);
 }
 
 .process-layout,
