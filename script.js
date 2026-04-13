@@ -211,8 +211,7 @@ if (lazyImages.length > 0) {
   if (saved === 'light' || saved === 'dark') {
     applyTheme(saved);
   } else {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(prefersDark ? 'dark' : 'light');
+    applyTheme('dark');
   }
 
   toggle.addEventListener('click', () => {
