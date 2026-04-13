@@ -1242,6 +1242,19 @@ textarea:focus {
   transition: all 300ms ease-in-out;
 }
 
+@media (min-width: 861px) {
+  .hobbies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hobby-card {
+    flex: 0 1 calc((100% - (0.62rem * 2)) / 3);
+    max-width: calc((100% - (0.62rem * 2)) / 3);
+  }
+}
+
 .hobby-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-elevated);
