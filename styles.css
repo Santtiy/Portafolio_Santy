@@ -1454,13 +1454,16 @@ textarea:focus {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.7rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .project-card {
   margin-top: 0;
   padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition: all 300ms ease-in-out;
 }
 
@@ -1501,6 +1504,9 @@ textarea:focus {
 
 .project-intro {
   padding: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 .project-title-row {
@@ -1529,17 +1535,25 @@ textarea:focus {
 }
 
 .project-intro p {
-  margin: 0.38rem 0 0;
+  margin: 0;
   color: #dce8ff;
   line-height: 1.45;
   font-size: 0.76rem;
+  line-clamp: 3;
+  min-height: calc(1.45em * 3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-stack {
-  margin-top: 0.45rem;
+  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.34rem;
+  min-height: 2.2rem;
+  align-content: flex-start;
 }
 
 .project-stack span {
@@ -1566,6 +1580,7 @@ textarea:focus {
   border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  flex: 1 1 auto;
 }
 
 .project-preview {
@@ -2659,6 +2674,23 @@ textarea:focus {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    height: auto;
+  }
+
+  .project-intro p {
+    line-clamp: unset;
+    min-height: 0;
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: initial;
+  }
+
+  .project-stack {
+    min-height: 0;
   }
 
   .project-card.is-expanded .project-preview {

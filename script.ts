@@ -1,8 +1,87 @@
-const menuLinks = document.querySelectorAll('.menu a');
-const menuToggle = document.querySelector('.menu-toggle');
+// Fuente principal en TypeScript. Este archivo se compila a script.js para el navegador.
+type NetworkInfo = {
+  saveData?: boolean;
+  effectiveType?: string;
+};
+
+type NavigatorWithNetworkInfo = Navigator & {
+  connection?: NetworkInfo;
+  mozConnection?: NetworkInfo;
+  webkitConnection?: NetworkInfo;
+  deviceMemory?: number;
+};
+
+type ReactRootLike = {
+  render: (...args: unknown[]) => void;
+};
+
+type HobbiesGridWithRoot = HTMLElement & {
+  __hobbiesReactRoot?: ReactRootLike;
+};
+
+type WindowWithReact = Window & typeof globalThis & {
+  React?: {
+    createElement: (...args: unknown[]) => unknown;
+    Fragment: unknown;
+  };
+  ReactDOM?: {
+    createRoot?: (container: Element | DocumentFragment) => ReactRootLike;
+    render?: (...args: unknown[]) => unknown;
+    default?: {
+      createRoot?: (container: Element | DocumentFragment) => ReactRootLike;
+    };
+  };
+};
+
+type Theme = 'dark' | 'light';
+type Lang = 'es' | 'en';
+type ContactFeedbackType = '' | 'is-success' | 'is-error';
+
+type FormSubmitErrorItem = {
+  message: string;
+};
+
+type FormSubmitPayload = {
+  errors?: FormSubmitErrorItem[];
+  message?: string;
+};
+
+type HobbyItem = {
+  icon: string;
+  iconClass: string;
+  title: string;
+  description: string;
+  extra?: string;
+  cardClass?: string;
+};
+
+const rootElement = document.documentElement;
+
+const getStoredValue = (key: string): string | null => {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+};
+
+const setStoredValue = (key: string, value: string): void => {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // no-op
+  }
+};
+
+const getCurrentLang = (): Lang => (rootElement.getAttribute('lang') === 'en' ? 'en' : 'es');
+const getCurrentTheme = (): Theme =>
+  rootElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+
+const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.menu a');
+const menuToggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
 const isMobileViewport = window.matchMedia('(max-width: 860px)').matches;
 
-const setActiveMenuLink = (targetId) => {
+const setActiveMenuLink = (targetId: string): void => {
   menuLinks.forEach((item) => {
     const href = item.getAttribute('href');
     item.classList.toggle('active', href === `#${targetId}`);
@@ -30,31 +109,66 @@ if (menuToggle) {
 }
 
 const observedSections = Array.from(menuLinks)
-  .map((link) => document.querySelector(link.getAttribute('href')))
-  .filter((section) => section instanceof HTMLElement);
+  .map((link) => {
+    const href = link.getAttribute('href');
+    return href ? document.querySelector<HTMLElement>(href) : null;
+  })
+  .filter((section): section is HTMLElement => section instanceof HTMLElement);
 
 if (observedSections.length > 0) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveMenuLink(entry.target.id);
-        }
-      });
-    },
-    {
-      threshold: 0.45,
-      rootMargin: '-25% 0px -45% 0px',
-    }
-  );
+  const getActiveSectionId = (): string | null => {
+    const markerY = Math.max(96, window.innerHeight * 0.32);
+    let bestSection: HTMLElement | null = null;
+    let bestDistance = Number.POSITIVE_INFINITY;
 
-  observedSections.forEach((section) => observer.observe(section));
+    for (const section of observedSections) {
+      const rect = section.getBoundingClientRect();
+      const containsMarker = rect.top <= markerY && rect.bottom >= markerY;
+      if (!containsMarker) continue;
+
+      const distance = Math.abs(rect.top - markerY);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestSection = section;
+      }
+    }
+
+    if (bestSection) return bestSection.id;
+
+    for (const section of observedSections) {
+      const distance = Math.abs(section.getBoundingClientRect().top - markerY);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestSection = section;
+      }
+    }
+
+    return bestSection ? bestSection.id : null;
+  };
+
+  let isTicking = false;
+  const syncActiveSection = (): void => {
+    if (isTicking) return;
+    isTicking = true;
+
+    window.requestAnimationFrame(() => {
+      const activeSectionId = getActiveSectionId();
+      if (activeSectionId) {
+        setActiveMenuLink(activeSectionId);
+      }
+      isTicking = false;
+    });
+  };
+
+  window.addEventListener('scroll', syncActiveSection, { passive: true });
+  window.addEventListener('resize', syncActiveSection);
+  syncActiveSection();
 }
 
-const projectCards = Array.from(document.querySelectorAll('.project-card'));
+const projectCards = Array.from(document.querySelectorAll<HTMLElement>('.project-card'));
 
 if (projectCards.length > 0) {
-  const syncProjectState = (card, expanded) => {
+  const syncProjectState = (card: HTMLElement, expanded: boolean): void => {
     card.classList.toggle('is-expanded', expanded);
     const trigger = card.querySelector('.project-main-toggle');
     if (trigger instanceof HTMLElement) {
@@ -136,7 +250,7 @@ if (contactForm instanceof HTMLFormElement) {
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const feedback = contactForm.querySelector('.contact-form-feedback');
 
-  const setFeedback = (type, message) => {
+  const setFeedback = (type: ContactFeedbackType, message: string): void => {
     if (!(feedback instanceof HTMLElement)) return;
     feedback.textContent = message;
     feedback.classList.remove('is-success', 'is-error');
@@ -148,7 +262,7 @@ if (contactForm instanceof HTMLFormElement) {
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const isEnglish = document.documentElement.getAttribute('lang') === 'en';
+    const isEnglish = getCurrentLang() === 'en';
     const messages = isEnglish
       ? {
           invalid: 'Please complete all fields correctly.',
@@ -203,7 +317,7 @@ if (contactForm instanceof HTMLFormElement) {
         },
       });
 
-      const payload = await response.json().catch(() => null);
+      const payload: FormSubmitPayload | null = await response.json().catch(() => null);
 
       if (response.ok) {
         contactForm.reset();
@@ -211,13 +325,13 @@ if (contactForm instanceof HTMLFormElement) {
       } else {
         const apiError =
           payload && Array.isArray(payload.errors) && payload.errors.length > 0
-            ? payload.errors.map((item) => item.message).join(' ')
+            ? payload.errors.map((item: FormSubmitErrorItem) => item.message).join(' ')
             : payload && payload.message
             ? payload.message
             : messages.error;
         setFeedback('is-error', apiError);
       }
-    } catch (error) {
+    } catch {
       setFeedback('is-error', messages.error);
     } finally {
       if (submitButton instanceof HTMLButtonElement) {
@@ -244,15 +358,16 @@ if (topbar) {
 }
 
 // Pre-carga imagenes lazy antes de entrar al viewport para evitar retraso visual al hacer scroll.
-const lazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+const lazyImages = Array.from(document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]'));
 
 if (lazyImages.length > 0) {
-  const networkInfo = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const nav = navigator as NavigatorWithNetworkInfo;
+  const networkInfo = nav.connection || nav.mozConnection || nav.webkitConnection;
   const saveDataEnabled = Boolean(networkInfo && networkInfo.saveData);
   const effectiveType = (networkInfo && networkInfo.effectiveType) || '';
   const slowNetwork = /2g|3g/i.test(effectiveType);
   const lowPowerDevice =
-    (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4) ||
+    (typeof nav.deviceMemory === 'number' && nav.deviceMemory <= 4) ||
     (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4);
 
   const preloadBySectionFactor = {
@@ -262,43 +377,48 @@ if (lazyImages.length > 0) {
     proceso: 1.2,
     testimonios: 1.15,
     contacto: 1.15,
-  };
+  } as const;
 
-  const getImageSectionId = (img) => {
+  type SectionId = keyof typeof preloadBySectionFactor | 'default';
+
+  const getImageSectionId = (img: HTMLImageElement): SectionId => {
     const section = img.closest('section.container[id], main.container.hero-grid, footer.container.site-footer');
     if (!section) return 'default';
-    if (section.id) return section.id;
+    if (section.id && section.id in preloadBySectionFactor) {
+      return section.id as keyof typeof preloadBySectionFactor;
+    }
     if (section.matches('main.container.hero-grid')) return 'top';
     if (section.matches('footer.container.site-footer')) return 'contacto';
     return 'default';
   };
 
-  const getPreloadDistance = (sectionId) => {
+  const getPreloadDistance = (sectionId: SectionId): number => {
     const viewportHeight = window.innerHeight || 800;
     const baseDistance = isMobileViewport
       ? Math.round(viewportHeight * (saveDataEnabled || slowNetwork ? 1.9 : 1.45))
       : Math.round(viewportHeight * 0.85);
 
-    const sectionFactor = preloadBySectionFactor[sectionId] || 1;
+    const sectionFactor = sectionId === 'default' ? 1 : preloadBySectionFactor[sectionId];
     const deviceFactor = lowPowerDevice ? 1.22 : 1;
     return Math.round(baseDistance * sectionFactor * deviceFactor);
   };
 
   if ('IntersectionObserver' in window) {
-    const observerByMargin = new Map();
+    const observerByMargin = new Map<number, IntersectionObserver>();
 
-    const handleImageWarmup = (entries, observer) => {
+    const handleImageWarmup = (entries: IntersectionObserverEntry[], observer: IntersectionObserver): void => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
 
         const img = entry.target;
+        if (!(img instanceof HTMLImageElement)) return;
         img.loading = 'eager';
         img.decoding = 'async';
         observer.unobserve(img);
       });
     };
 
-    const getObserverForMargin = (marginPx) => {
+    const getObserverForMargin = (marginPx: number): IntersectionObserver => {
       if (!observerByMargin.has(marginPx)) {
         observerByMargin.set(
           marginPx,
@@ -309,7 +429,7 @@ if (lazyImages.length > 0) {
         );
       }
 
-      return observerByMargin.get(marginPx);
+      return observerByMargin.get(marginPx) as IntersectionObserver;
     };
 
     lazyImages.forEach((img) => {
@@ -335,8 +455,8 @@ if (lazyImages.length > 0) {
 
   const THEME_KEY = 'site-theme';
 
-  const applyTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
+  const applyTheme = (theme: Theme): void => {
+    rootElement.setAttribute('data-theme', theme);
     const isDark = theme === 'dark';
     toggle.setAttribute('aria-pressed', String(isDark));
     // Actualiza icono
@@ -345,23 +465,19 @@ if (lazyImages.length > 0) {
       : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
   };
 
-  const initialTheme = document.documentElement.getAttribute('data-theme');
+  const initialTheme = rootElement.getAttribute('data-theme');
   if (initialTheme === 'light' || initialTheme === 'dark') {
     applyTheme(initialTheme);
   } else {
-    const saved = localStorage.getItem(THEME_KEY);
+    const saved = getStoredValue(THEME_KEY);
     applyTheme(saved === 'light' || saved === 'dark' ? saved : 'dark');
   }
 
   toggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
+    const currentTheme = getCurrentTheme();
+    const next: Theme = currentTheme === 'dark' ? 'light' : 'dark';
     applyTheme(next);
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch (e) {
-      // no-op
-    }
+    setStoredValue(THEME_KEY, next);
   });
 })();
 
@@ -371,7 +487,7 @@ if (lazyImages.length > 0) {
   if (!langToggle) return;
 
   const LANG_KEY = 'site-lang';
-  const hobbiesByLang = {
+  const hobbiesByLang: Record<Lang, HobbyItem[]> = {
     es: [
       {
         icon: 'fa-solid fa-music',
@@ -492,10 +608,10 @@ if (lazyImages.length > 0) {
     ],
   };
 
-  const renderHobbiesWithTemplate = (hobbiesGrid, hobbies) => {
+  const renderHobbiesWithTemplate = (hobbiesGrid: HobbiesGridWithRoot, hobbies: HobbyItem[]): void => {
     hobbiesGrid.innerHTML = hobbies
       .map(
-        (hobby) => `
+        (hobby: HobbyItem) => `
           <article class="hobby-card card ${hobby.cardClass || ''}">
             <span class="hobby-icon ${hobby.iconClass || ''}" aria-hidden="true">
               <i class="${hobby.icon}"></i>
@@ -509,15 +625,16 @@ if (lazyImages.length > 0) {
       .join('');
   };
 
-  const renderHobbiesWithReact = (hobbiesGrid, hobbies) => {
-    const ReactRef = window.React;
-    const ReactDOMRef = window.ReactDOM;
+  const renderHobbiesWithReact = (hobbiesGrid: HobbiesGridWithRoot, hobbies: HobbyItem[]): boolean => {
+    const typedWindow = window as WindowWithReact;
+    const ReactRef = typedWindow.React;
+    const ReactDOMRef = typedWindow.ReactDOM;
     if (!ReactRef || !ReactDOMRef) return false;
 
     const h = ReactRef.createElement;
-    const html = (value) => ({ __html: value || '' });
+    const html = (value: string | undefined) => ({ __html: value || '' });
 
-    const cards = hobbies.map((hobby, index) =>
+    const cards = hobbies.map((hobby: HobbyItem, index: number) =>
       h(
         'article',
         {
@@ -564,18 +681,18 @@ if (lazyImages.length > 0) {
     return false;
   };
 
-  const HobbiesSection = (lang = 'es') => {
-    const hobbiesGrid = document.getElementById('hobbies-grid');
+  const HobbiesSection = (lang: Lang = 'es'): void => {
+    const hobbiesGrid = document.getElementById('hobbies-grid') as HobbiesGridWithRoot | null;
     if (!hobbiesGrid) return;
 
-    const hobbies = hobbiesByLang[lang] || hobbiesByLang.es;
+    const hobbies = hobbiesByLang[lang];
     const didRenderWithReact = renderHobbiesWithReact(hobbiesGrid, hobbies);
     if (!didRenderWithReact) {
       renderHobbiesWithTemplate(hobbiesGrid, hobbies);
     }
   };
 
-  const translations = {
+  const translations: Record<Lang, Record<string, string>> = {
     es: {
       'nav.menuToggle': 'Abrir menu de navegacion',
       'nav.primary': 'Principal',
@@ -832,44 +949,40 @@ if (lazyImages.length > 0) {
     },
   };
 
-  const updateI18n = (lang) => {
-    const dict = translations[lang] || translations.es;
+  const updateI18n = (lang: Lang): void => {
+    const dict = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      if (dict[key]) {
+      if (key && dict[key]) {
         el.innerHTML = dict[key];
       }
     });
     document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
       const key = el.getAttribute('data-i18n-aria');
-      if (dict[key]) {
+      if (key && dict[key]) {
         el.setAttribute('aria-label', dict[key]);
       }
     });
   };
-  const applyLang = (lang) => {
-    document.documentElement.setAttribute('lang', lang);
+  const applyLang = (lang: Lang): void => {
+    rootElement.setAttribute('lang', lang);
     const label = langToggle.querySelector('.lang-label');
     if (label) label.textContent = lang === 'en' ? 'EN' : 'ES';
     updateI18n(lang);
     HobbiesSection(lang);
   };
 
-  const savedLang = localStorage.getItem(LANG_KEY);
+  const savedLang = getStoredValue(LANG_KEY);
   if (savedLang === 'en' || savedLang === 'es') {
     applyLang(savedLang);
   } else {
-    applyLang(document.documentElement.getAttribute('lang') || 'es');
+    applyLang(getCurrentLang());
   }
 
   langToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('lang') || 'es';
-    const next = current === 'es' ? 'en' : 'es';
+    const current = getCurrentLang();
+    const next: Lang = current === 'es' ? 'en' : 'es';
     applyLang(next);
-    try {
-      localStorage.setItem(LANG_KEY, next);
-    } catch (e) {
-      // no-op
-    }
+    setStoredValue(LANG_KEY, next);
   });
 })();
