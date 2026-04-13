@@ -1,0 +1,27 @@
+{
+  "name": "portafolio_santy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/script.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "watch": "tsc -w",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"No tests configured\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Santtiy/Portafolio_Santy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Santtiy/Portafolio_Santy/issues"
+  },
+  "homepage": "https://github.com/Santtiy/Portafolio_Santy#readme",
+  "devDependencies": {
+    "typescript": "^6.0.2"
+  }
+}
