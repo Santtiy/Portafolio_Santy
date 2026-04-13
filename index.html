@@ -27,34 +27,36 @@
         <span class="brand-name">Santiago Bustos</span>
       </div>
 
-      <div class="topbar-actions">
-        <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma" title="Cambiar idioma" data-i18n-aria="nav.lang">
-          <i class="fa-solid fa-globe" aria-hidden="true"></i>
-          <span class="lang-label">ES</span>
-        </button>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema" aria-pressed="false">
-          <i class="fa-solid fa-moon" aria-hidden="true"></i>
-        </button>
+      <div class="topbar-right">
+        <nav class="menu" id="menu-principal" aria-label="Principal" data-i18n-aria="nav.primary">
+          <a class="active" href="#sobre-mi" data-i18n="nav.about">Sobre mi</a>
+          <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+          <a href="#proceso" data-i18n="nav.process">Proceso</a>
+          <a href="#testimonios" data-i18n="nav.testimonials">Testimonios</a>
+          <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+        </nav>
 
-        <button
-          type="button"
-          class="menu-toggle"
-          aria-label="Abrir menu de navegacion"
-          aria-controls="menu-principal"
-          aria-expanded="false"
-          data-i18n-aria="nav.menuToggle"
-        >
-          <i class="fa-solid fa-bars" aria-hidden="true"></i>
-        </button>
+        <div class="topbar-actions">
+          <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma" title="Cambiar idioma" data-i18n-aria="nav.lang">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span class="lang-label">ES</span>
+          </button>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema" aria-pressed="false">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          </button>
+
+          <button
+            type="button"
+            class="menu-toggle"
+            aria-label="Abrir menu de navegacion"
+            aria-controls="menu-principal"
+            aria-expanded="false"
+            data-i18n-aria="nav.menuToggle"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
-
-      <nav class="menu" id="menu-principal" aria-label="Principal" data-i18n-aria="nav.primary">
-        <a class="active" href="#sobre-mi" data-i18n="nav.about">Sobre mi</a>
-        <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
-        <a href="#proceso" data-i18n="nav.process">Proceso</a>
-        <a href="#testimonios" data-i18n="nav.testimonials">Testimonios</a>
-        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
-      </nav>
     </header>
 
     <main class="container hero-grid">

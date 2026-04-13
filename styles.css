@@ -385,6 +385,13 @@ svg {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-left: 0;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-left: auto;
 }
 
@@ -448,7 +455,7 @@ svg {
   justify-content: flex-end;
   gap: 0.22rem;
   flex-wrap: nowrap;
-  margin-left: auto;
+  margin-left: 0;
   padding: 0.16rem;
   border: 1px solid rgba(141, 182, 255, 0.18);
   border-radius: var(--radius-md);
@@ -1915,7 +1922,7 @@ textarea:focus {
   }
 
   .topbar-actions {
-    margin-left: auto;
+    margin-left: 0;
   }
 
   .hero-grid {
