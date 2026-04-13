@@ -143,6 +143,103 @@ if (topbar) {
   if (!langToggle) return;
 
   const LANG_KEY = 'site-lang';
+  const hobbiesByLang = {
+    es: [
+      {
+        icon: 'fa-solid fa-music',
+        title: 'M&uacute;sica',
+        description: 'Me gusta mucho escuchar m&uacute;sica en mis tiempos libres.',
+      },
+      {
+        icon: 'fa-solid fa-shoe-prints',
+        title: 'Caminar',
+        description: 'Me gusta salir a caminar a veces para despejar mi cabeza.',
+      },
+      {
+        icon: 'fa-solid fa-gamepad',
+        title: 'Videojuegos',
+        description: 'Estoy muy interesado en los videojuegos y mundos interactivos.',
+      },
+      {
+        icon: 'fa-solid fa-dumbbell',
+        title: 'Gym',
+        description: 'Me gusta hacer ejercicio de vez en cuando para mantenerme activo.',
+      },
+      {
+        icon: 'fa-solid fa-bicycle',
+        title: 'Bicicleta',
+        description: 'Me gusta salir a dar paseos en bicicleta.',
+      },
+      {
+        icon: 'fa-solid fa-basketball',
+        title: 'B&aacute;squet',
+        description: 'Me gusta jugar basketball en mis tiempos libres.',
+      },
+      {
+        icon: 'fa-solid fa-film',
+        title: 'Pel&iacute;culas y Anime',
+        description: 'Me gusta mucho ver todo tipo de pel&iacute;culas y animaci&oacute;n japonesa.',
+      },
+    ],
+    en: [
+      {
+        icon: 'fa-solid fa-music',
+        title: 'Music',
+        description: 'I really enjoy listening to music in my free time.',
+      },
+      {
+        icon: 'fa-solid fa-shoe-prints',
+        title: 'Walking',
+        description: 'I like going for walks to clear my mind.',
+      },
+      {
+        icon: 'fa-solid fa-gamepad',
+        title: 'Video Games',
+        description: 'I am very interested in video games and interactive worlds.',
+      },
+      {
+        icon: 'fa-solid fa-dumbbell',
+        title: 'Gym',
+        description: 'I like exercising from time to time to stay active.',
+      },
+      {
+        icon: 'fa-solid fa-bicycle',
+        title: 'Cycling',
+        description: 'I enjoy going on bike rides.',
+      },
+      {
+        icon: 'fa-solid fa-basketball',
+        title: 'Basketball',
+        description: 'I like playing basketball in my free time.',
+      },
+      {
+        icon: 'fa-solid fa-film',
+        title: 'Movies and Anime',
+        description: 'I really enjoy watching all kinds of movies and Japanese animation.',
+      },
+    ],
+  };
+
+  const HobbiesSection = (lang = 'es') => {
+    const hobbiesGrid = document.getElementById('hobbies-grid');
+    if (!hobbiesGrid) return;
+
+    const hobbies = hobbiesByLang[lang] || hobbiesByLang.es;
+    hobbiesGrid.innerHTML = hobbies
+      .map(
+        (hobby) => `
+          <article class="hobby-card card">
+            <span class="hobby-icon" aria-hidden="true">
+              <i class="${hobby.icon}"></i>
+            </span>
+            <h4>${hobby.title}</h4>
+            <p>${hobby.description}</p>
+          </article>
+        `
+      )
+      .join('');
+  };
+
   const translations = {
     es: {
       'nav.menuToggle': 'Abrir menu de navegacion',
@@ -177,6 +274,8 @@ if (topbar) {
       'about.feature2.body': 'Diseno soluciones que conectan diferentes tipos de usuarios dentro de una misma plataforma, facilitando la interaccion y el flujo de informacion. Me enfoco en estructurar sistemas claros y funcionales.',
       'about.feature3.title': 'Resolucion de Problemas y Automatizacion',
       'about.feature3.body': 'Implemento soluciones para automatizar procesos y resolver problemas tecnicos, desde calculos y simulaciones hasta la optimizacion de flujos dentro de una aplicacion.',
+      'hobbies.title': 'Hobbies e Intereses',
+      'hobbies.subtitle': 'M&aacute;s all&aacute; del c&oacute;digo: mis pasiones y &aacute;reas de inter&eacute;s',
       'about.metrics': 'Metricas profesionales',
       'about.metrics.projects': 'Proyectos completados',
       'about.metrics.level': 'Nivel de desarrollo',
@@ -294,6 +393,8 @@ if (topbar) {
       'about.feature2.body': 'I design solutions that connect different user types within a single platform, facilitating interaction and information flow. I focus on structuring clear and functional systems.',
       'about.feature3.title': 'Problem Solving and Automation',
       'about.feature3.body': 'I implement solutions to automate processes and solve technical problems, from calculations and simulations to optimizing flows within an application.',
+      'hobbies.title': 'Hobbies and Interests',
+      'hobbies.subtitle': 'Beyond code: my passions and areas of interest',
       'about.metrics': 'Professional metrics',
       'about.metrics.projects': 'Projects completed',
       'about.metrics.level': 'Development level',
@@ -400,6 +501,7 @@ if (topbar) {
     const label = langToggle.querySelector('.lang-label');
     if (label) label.textContent = lang === 'en' ? 'EN' : 'ES';
     updateI18n(lang);
+    HobbiesSection(lang);
   };
 
   const savedLang = localStorage.getItem(LANG_KEY);
