@@ -700,7 +700,7 @@ if (lazyImages.length > 0) {
       'footer.testimonials': 'Testimonios',
       'footer.contactLink': 'Contacto',
       'footer.cv': 'CV',
-      'footer.copy': 'Copyright <time datetime="2026">2026</time> Santiago Bustos Lopez. Hecho con dedicacion usando HTML, CSS y JavaScript.',
+      'footer.copy': 'Copyright <time datetime="2026">2026</time> Santiago Bustos Lopez.',
       'footer.backTop': 'Volver arriba',
     },
     en: {
@@ -827,7 +827,7 @@ if (lazyImages.length > 0) {
       'footer.testimonials': 'Testimonials',
       'footer.contactLink': 'Contact',
       'footer.cv': 'CV',
-      'footer.copy': 'Copyright <time datetime="2026">2026</time> Santiago Bustos Lopez. Made with dedication using HTML, CSS, and JavaScript.',
+      'footer.copy': 'Copyright <time datetime="2026">2026</time> Santiago Bustos Lopez.',
       'footer.backTop': 'Back to top',
     },
   };
