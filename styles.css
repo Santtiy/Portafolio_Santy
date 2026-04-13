@@ -184,8 +184,9 @@
 
 [data-theme="light"] .menu a:hover,
 [data-theme="light"] .menu a.active {
-  color: #10375f;
-  background: linear-gradient(90deg, rgba(201, 35, 69, 0.26), rgba(112, 160, 232, 0.24));
+  color: var(--hover-text);
+  border-color: var(--hover-blue-strong);
+  background: var(--hover-blue);
 }
 
 [data-theme="light"] .theme-toggle {
@@ -214,8 +215,18 @@
 }
 
 [data-theme="light"] .menu-toggle:hover {
+  background: var(--hover-blue);
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
   transform: translateY(-2px);
   box-shadow: var(--shadow-elevated);
+}
+
+[data-theme="light"] .theme-toggle:hover,
+[data-theme="light"] .lang-toggle:hover {
+  background: var(--hover-blue);
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
 }
 
 [data-theme="light"] .btn,
@@ -481,7 +492,7 @@ body {
 
 .menu a:hover,
 .menu a.active {
-  background: linear-gradient(92deg, rgba(227, 35, 72, 0.3), rgba(47, 127, 255, 0.2));
+  background: var(--hover-blue);
 }
 
 .btn-primary,
@@ -586,6 +597,8 @@ svg {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   min-width: 220px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .brand-tag {
@@ -669,6 +682,21 @@ svg {
   background: linear-gradient(120deg, rgba(213, 36, 71, 0.22), rgba(47, 127, 255, 0.16));
 }
 
+.lang-toggle:hover,
+.theme-toggle:hover,
+.menu-toggle:hover {
+  background: var(--hover-blue);
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
+  transform: translateY(-2px);
+}
+
+.lang-toggle:hover i,
+.theme-toggle:hover i,
+.menu-toggle:hover i {
+  color: var(--hover-text);
+}
+
 .menu a {
   text-decoration: none;
   color: var(--muted);
@@ -684,9 +712,9 @@ svg {
 
 .menu a:hover,
 .menu a.active {
-  border-color: var(--line);
-  color: var(--text);
-  background: linear-gradient(92deg, rgba(213, 36, 71, 0.3), rgba(47, 127, 255, 0.2));
+  border-color: var(--hover-blue-strong);
+  color: var(--hover-text);
+  background: var(--hover-blue);
   box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.26);
 }
 
@@ -1422,8 +1450,15 @@ textarea:focus {
   text-transform: lowercase;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  align-items: start;
+}
+
 .project-card {
-  margin-top: 0.7rem;
+  margin-top: 0;
   padding: 0;
   overflow: hidden;
   transition: all 300ms ease-in-out;
@@ -1432,6 +1467,15 @@ textarea:focus {
 .project-main {
   display: grid;
   grid-template-columns: 100px minmax(0, 1fr);
+}
+
+.project-main-toggle {
+  cursor: pointer;
+}
+
+.project-main-toggle:focus-visible {
+  outline: 2px solid rgba(124, 183, 255, 0.9);
+  outline-offset: -2px;
 }
 
 .project-capture {
@@ -1524,6 +1568,32 @@ textarea:focus {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.project-preview {
+  border-top: 1px solid var(--line);
+  padding: 0 0.7rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease-in-out, opacity 280ms ease-in-out,
+    padding 280ms ease-in-out;
+}
+
+.project-card.is-expanded .project-preview {
+  max-height: 360px;
+  opacity: 1;
+  padding: 0.7rem;
+}
+
+.project-preview img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  display: block;
+  box-shadow: 0 8px 18px rgba(3, 12, 34, 0.35);
+}
+
 .project-details article {
   padding: 0.7rem;
   transition: all 300ms ease-in-out;
@@ -1557,6 +1627,13 @@ textarea:focus {
   .project-card:focus-within {
     transform: translateY(-2px);
     box-shadow: var(--shadow-elevated);
+  }
+
+  .project-card:hover .project-preview,
+  .project-card:focus-within .project-preview {
+    max-height: 360px;
+    opacity: 1;
+    padding: 0.7rem;
   }
 
   .project-card:hover .project-capture img,
@@ -2578,6 +2655,18 @@ textarea:focus {
 
   .project-main {
     grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.is-expanded .project-preview {
+    max-height: 300px;
+  }
+
+  .project-preview img {
+    max-height: 220px;
   }
 
   .project-capture {

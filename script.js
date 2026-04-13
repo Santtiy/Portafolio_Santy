@@ -51,6 +51,45 @@ if (observedSections.length > 0) {
   observedSections.forEach((section) => observer.observe(section));
 }
 
+const projectCards = Array.from(document.querySelectorAll('.project-card'));
+
+if (projectCards.length > 0) {
+  const syncProjectState = (card, expanded) => {
+    card.classList.toggle('is-expanded', expanded);
+    const trigger = card.querySelector('.project-main-toggle');
+    if (trigger instanceof HTMLElement) {
+      trigger.setAttribute('aria-expanded', String(expanded));
+    }
+  };
+
+  projectCards.forEach((card) => {
+    const trigger = card.querySelector('.project-main-toggle');
+    if (!(trigger instanceof HTMLElement)) return;
+
+    syncProjectState(card, false);
+
+    const toggleCard = () => {
+      const willExpand = !card.classList.contains('is-expanded');
+
+      // Comportamiento tipo acordeon: abre uno y cierra los demas.
+      projectCards.forEach((item) => {
+        if (item !== card) {
+          syncProjectState(item, false);
+        }
+      });
+
+      syncProjectState(card, willExpand);
+    };
+
+    trigger.addEventListener('click', toggleCard);
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      toggleCard();
+    });
+  });
+}
+
 const scrollAnimatedSections = Array.from(
   document.querySelectorAll('main.container.hero-grid, section.container, footer.container.site-footer')
 );
@@ -578,17 +617,19 @@ if (lazyImages.length > 0) {
       'about.metrics.api': 'Arquitectura API',
       'about.metrics.crud': 'Operaciones implementadas',
       'projects.section': '03 - PROYECTOS DESTACADOS',
-      'projects.subtitle': '3 casos de estudio',
+      'projects.subtitle': '4 casos de estudio',
       'projects.type.fullstack': 'Full-Stack',
       'projects.type.webapp': 'Aplicacion Web',
       'projects.stack.api': 'API REST',
       'projects.stack.crud': 'CRUD Estructurado',
+      'projects.toggleImage': 'Mostrar imagen del proyecto',
       'projects.problem': 'Problema',
       'projects.role': 'Mi rol',
       'projects.decision': 'Decision clave',
       'projects.number1': 'Proyecto #1',
       'projects.number2': 'Proyecto #2',
       'projects.number3': 'Proyecto #3',
+      'projects.number4': 'Proyecto #4',
       'projects.code': 'Ver codigo',
       'projects.demo': 'Ver demo',
       'process.section': '04 - MI PROCESO',
@@ -697,17 +738,19 @@ if (lazyImages.length > 0) {
       'about.metrics.api': 'API architecture',
       'about.metrics.crud': 'CRUD operations',
       'projects.section': '03 - FEATURED PROJECTS',
-      'projects.subtitle': '3 case studies',
+      'projects.subtitle': '4 case studies',
       'projects.type.fullstack': 'Full-Stack',
       'projects.type.webapp': 'Web App',
       'projects.stack.api': 'REST API',
       'projects.stack.crud': 'Structured CRUD',
+      'projects.toggleImage': 'Show project image',
       'projects.problem': 'Problem',
       'projects.role': 'My role',
       'projects.decision': 'Key decision',
       'projects.number1': 'Project #1',
       'projects.number2': 'Project #2',
       'projects.number3': 'Project #3',
+      'projects.number4': 'Project #4',
       'projects.code': 'View code',
       'projects.demo': 'View demo',
       'process.section': '04 - MY PROCESS',

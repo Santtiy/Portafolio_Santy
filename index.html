@@ -33,10 +33,10 @@
     <div class="noise" aria-hidden="true"></div>
 
     <header class="topbar container">
-      <div class="brand">
+      <a class="brand" href="#top" aria-label="Ir al inicio del portafolio">
         <span class="brand-tag">SB</span>
         <span class="brand-name">Santiago Bustos</span>
-      </div>
+      </a>
 
       <div class="topbar-right">
         <nav class="menu" id="menu-principal" aria-label="Principal" data-i18n-aria="nav.primary">
@@ -245,7 +245,7 @@
       <div class="about-metrics" aria-label="Metricas profesionales" data-i18n-aria="about.metrics">
         <article>
           <i class="fa-solid fa-diagram-successor metric-icon" aria-hidden="true"></i>
-          <h4>3</h4>
+          <h4>4</h4>
           <p data-i18n="about.metrics.projects">Proyectos completados</p>
         </article>
         <article>
@@ -272,11 +272,20 @@
           <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
           <span id="projects-title" data-i18n="projects.section">03 - PROYECTOS DESTACADOS</span>
         </div>
-        <small data-i18n="projects.subtitle">3 casos de estudio</small>
+        <small data-i18n="projects.subtitle">4 casos de estudio</small>
       </div>
 
-      <article class="project-card card">
-        <div class="project-main">
+      <div class="projects-grid">
+
+      <article class="project-card card is-collapsed">
+        <div
+          class="project-main project-main-toggle"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-label="Mostrar imagen del proyecto"
+          data-i18n-aria="projects.toggleImage"
+        >
           <div class="project-capture">
             <img
               src="https://cdn.discordapp.com/attachments/1235371416237510667/1492312843696214067/logo-OhliYz6f.png?ex=69dae023&is=69d98ea3&hm=7f1f5bc26c29a27d64c1e8542bf94591ae37e6a688fbb1c6b8c782cd506df361&"
@@ -305,6 +314,17 @@
               <span><i class="fa-solid fa-plug" aria-hidden="true"></i><span data-i18n="projects.stack.api">API REST</span></span>
             </div>
           </div>
+        </div>
+
+        <div class="project-preview">
+          <img
+            src="https://cdn.discordapp.com/attachments/1235371416237510667/1493251628378099762/image.png?ex=69de4a73&amp;is=69dcf8f3&amp;hm=e852d815fca2f2b3dcfcd8c8f5d7fa1c2984b5c371c4f1eeeae6967e05e07510&amp;"
+            alt="Vista previa del proyecto Agrolink"
+            loading="lazy"
+            decoding="async"
+            width="1024"
+            height="1024"
+          />
         </div>
 
         <div class="project-details">
@@ -342,8 +362,15 @@
         </footer>
       </article>
 
-      <article class="project-card card">
-        <div class="project-main">
+      <article class="project-card card is-collapsed">
+        <div
+          class="project-main project-main-toggle"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-label="Mostrar imagen del proyecto"
+          data-i18n-aria="projects.toggleImage"
+        >
           <div class="project-capture">
             <img
               src="https://cdn.discordapp.com/attachments/1235371416237510667/1492745951561912431/content.png?ex=69dc7380&is=69db2200&hm=5b79dd48f1511b134f1c4039df15a3d9bd289665f0ad0b534ac7e97c71d954e0&"
@@ -370,6 +397,17 @@
               <span><i class="fa-brands fa-css3-alt" aria-hidden="true"></i><span>CSS</span></span>
             </div>
           </div>
+        </div>
+
+        <div class="project-preview">
+          <img
+            src="https://cdn.discordapp.com/attachments/1235371416237510667/1493251691510763612/image.png?ex=69de4a82&amp;is=69dcf902&amp;hm=157c6ffa630d5acb1a1b01912683caddb4d344401376b9033a1ef8a467676fee&amp;"
+            alt="Vista previa del proyecto SantyMusic"
+            loading="lazy"
+            decoding="async"
+            width="1024"
+            height="1024"
+          />
         </div>
 
         <div class="project-details">
@@ -405,8 +443,15 @@
         </footer>
       </article>
 
-      <article class="project-card card">
-        <div class="project-main">
+      <article class="project-card card is-collapsed">
+        <div
+          class="project-main project-main-toggle"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-label="Mostrar imagen del proyecto"
+          data-i18n-aria="projects.toggleImage"
+        >
           <div class="project-capture">
             <img
               src="https://cdn.discordapp.com/attachments/1235371416237510667/1492699080084820058/logo.png?ex=69dc47d9&is=69daf659&hm=7d5c807ef41986f5ad00268a6ce77d10d5cf047d7a6b3a7f4ba33868b74396e1&"
@@ -434,6 +479,17 @@
               <span><i class="fa-solid fa-database" aria-hidden="true"></i><span data-i18n="projects.stack.crud">CRUD Estructurado</span></span>
             </div>
           </div>
+        </div>
+
+        <div class="project-preview">
+          <img
+            src="https://cdn.discordapp.com/attachments/1235371416237510667/1493251791679393862/image.png?ex=69de4a9a&amp;is=69dcf91a&amp;hm=cab9601fe3e3fff09bfb48877ddf821580fd8ca6d745b9108059ebbc40c28be9&amp;"
+            alt="Vista previa del proyecto Mentes Brillantes"
+            loading="lazy"
+            decoding="async"
+            width="1024"
+            height="1024"
+          />
         </div>
 
         <div class="project-details">
@@ -468,6 +524,92 @@
           </div>
         </footer>
       </article>
+
+      <article class="project-card card is-collapsed">
+        <div
+          class="project-main project-main-toggle"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-label="Mostrar imagen del proyecto"
+          data-i18n-aria="projects.toggleImage"
+        >
+          <div class="project-capture">
+            <img
+              src="https://cdn.discordapp.com/attachments/1235371416237510667/1493253116554903652/content.png?ex=69de4bd6&amp;is=69dcfa56&amp;hm=dfee47ef89cee7c5bb90fa999759ee5444da36ac1a6d3d33462534d10b42e3e0&amp;"
+              alt="Logo del proyecto EduGestion"
+              loading="lazy"
+              decoding="async"
+              width="74"
+              height="74"
+            />
+          </div>
+
+          <div class="project-intro">
+            <div class="project-title-row">
+              <h3>EduGestion</h3>
+              <span class="project-type" data-i18n="projects.type.fullstack">Full-Stack</span>
+            </div>
+            <p>
+              Sistema de gestion educativa con frontend en React y Vite, y
+              backend en Spring Boot para administrar usuarios, talleres,
+              materiales, pagos y certificados con autenticacion JWT.
+            </p>
+            <div class="project-stack">
+              <span><i class="fa-brands fa-react" aria-hidden="true"></i><span>React</span></span>
+              <span><i class="fa-solid fa-code" aria-hidden="true"></i><span>TypeScript</span></span>
+              <span><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Vite</span></span>
+              <span><i class="fa-brands fa-java" aria-hidden="true"></i><span>Spring Boot</span></span>
+              <span><i class="fa-solid fa-database" aria-hidden="true"></i><span>MongoDB</span></span>
+              <span><i class="fa-solid fa-key" aria-hidden="true"></i><span>JWT</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-preview">
+          <img
+            src="https://media.discordapp.net/attachments/1235371416237510667/1493251023475839127/image.png?ex=69de49e3&amp;is=69dcf863&amp;hm=3329e4bf2210c932b821a5fdbac978a9cee91f0c4dfcfe305029a3ed38e04606&amp;=&amp;format=webp&amp;quality=lossless&amp;width=1651&amp;height=800"
+            alt="Vista previa del proyecto EduGestion"
+            loading="lazy"
+            decoding="async"
+            width="512"
+            height="512"
+          />
+        </div>
+
+        <div class="project-details">
+          <article>
+            <h4 data-i18n="projects.problem">Problema</h4>
+            <p>
+              Centralizar la gestion academica y operativa en una sola
+              plataforma para administradores, instructores y estudiantes.
+            </p>
+          </article>
+          <article>
+            <h4 data-i18n="projects.role">Mi rol</h4>
+            <p>
+              Desarrollo full-stack: dashboard estudiantil, consumo de API REST,
+              flujos de autenticacion JWT y modelado de entidades en MongoDB.
+            </p>
+          </article>
+          <article>
+            <h4 data-i18n="projects.decision">Decision clave</h4>
+            <p>
+              Separar frontend y backend para escalar por capas, y organizar
+              endpoints por rol con documentacion Swagger/OpenAPI.
+            </p>
+          </article>
+        </div>
+
+        <footer class="project-footer">
+          <span data-i18n="projects.number4">Proyecto #4</span>
+          <div class="project-actions">
+            <a class="btn project-link" href="https://github.com/Santtiy/EduGestion" target="_blank" rel="noopener noreferrer" data-i18n="projects.code">Ver codigo</a>
+            <a class="btn project-link project-link-solid" href="https://edu-gestion-six.vercel.app/student/dashboard" target="_blank" rel="noopener noreferrer" data-i18n="projects.demo">Ver demo</a>
+          </div>
+        </footer>
+      </article>
+      </div>
       <div id="proyectos-fin" aria-hidden="true"></div>
     </section>
 
