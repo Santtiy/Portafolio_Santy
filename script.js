@@ -284,6 +284,13 @@ if (lazyImages.length > 0) {
         description: 'Me gusta mucho ver todo tipo de pel&iacute;culas y animaci&oacute;n japonesa.',
         extra: 'Cine • Anime • Sci-fi',
       },
+      {
+        icon: 'fa-solid fa-camera-retro',
+        iconClass: 'hobby-icon--photo',
+        title: 'Fotograf&iacute;a',
+        description: 'Me encanta tomar fotograf&iacute;as de atardeceres.',
+        extra: 'Atardeceres • Luz natural • Paisajes',
+      },
     ],
     en: [
       {
@@ -335,6 +342,13 @@ if (lazyImages.length > 0) {
         title: 'Movies and Anime',
         description: 'I really enjoy watching all kinds of movies and Japanese animation.',
         extra: 'Cinema • Anime • Sci-fi',
+      },
+      {
+        icon: 'fa-solid fa-camera-retro',
+        iconClass: 'hobby-icon--photo',
+        title: 'Photography',
+        description: 'I love taking sunset photographs.',
+        extra: 'Sunsets • Natural light • Landscapes',
       },
     ],
   };

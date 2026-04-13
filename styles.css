@@ -44,12 +44,45 @@
 /* Ajustes visuales adicionales para el modo claro (sobrescribe gradientes oscuros) */
 [data-theme="light"] body {
   background:
-    radial-gradient(circle at 50% 52%, #d9efff 0%, #a8d2ff 42%, #6fa5dc 72%, #2e4f8a 100%);
+    radial-gradient(circle at 50% 52%, #ffffff 0%, #eef7ff 30%, #d6eaff 62%, #aacaf0 100%);
   color: var(--text);
 }
 
 [data-theme="light"] .noise {
-  opacity: 0.2;
+  opacity: 0.28;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 255, 255, 0.22) 0, transparent 56%),
+    radial-gradient(circle at 14% 18%, rgba(152, 196, 246, 0.14) 0, transparent 40%),
+    radial-gradient(circle at 86% 20%, rgba(169, 206, 249, 0.12) 0, transparent 40%);
+}
+
+[data-theme="light"] .noise::before {
+  background-image:
+    repeating-radial-gradient(
+      circle at 50% 52%,
+      transparent 0 34px,
+      rgba(186, 215, 248, 0.94) 34px 36px
+    ),
+    repeating-conic-gradient(
+      from 0deg at 50% 52%,
+      rgba(171, 205, 244, 0.86) 0deg 1deg,
+      transparent 1deg 15deg
+    ),
+    radial-gradient(circle at 50% 52%, rgba(238, 247, 255, 0.96) 0 3px, transparent 3px);
+  opacity: 0.9;
+}
+
+[data-theme="light"] .noise::after {
+  background-image:
+    repeating-radial-gradient(circle at 0% 0%, transparent 0 24px, rgba(103, 151, 214, 0.18) 24px 25px),
+    repeating-conic-gradient(from 40deg at 0% 0%, rgba(103, 151, 214, 0.14) 0deg 0.8deg, transparent 0.8deg 17deg),
+    repeating-radial-gradient(circle at 100% 0%, transparent 0 24px, rgba(103, 151, 214, 0.18) 24px 25px),
+    repeating-conic-gradient(from 140deg at 100% 0%, rgba(103, 151, 214, 0.14) 0deg 0.8deg, transparent 0.8deg 17deg),
+    repeating-radial-gradient(circle at 0% 100%, transparent 0 24px, rgba(103, 151, 214, 0.18) 24px 25px),
+    repeating-conic-gradient(from -40deg at 0% 100%, rgba(103, 151, 214, 0.14) 0deg 0.8deg, transparent 0.8deg 17deg),
+    repeating-radial-gradient(circle at 100% 100%, transparent 0 24px, rgba(103, 151, 214, 0.18) 24px 25px),
+    repeating-conic-gradient(from -140deg at 100% 100%, rgba(103, 151, 214, 0.14) 0deg 0.8deg, transparent 0.8deg 17deg);
+  opacity: 0.44;
 }
 
 [data-theme="light"] .card,
@@ -1286,6 +1319,12 @@ textarea:focus {
 .hobby-card:hover .hobby-icon--cinema i,
 .hobby-card:focus-within .hobby-icon--cinema i {
   opacity: 0.7;
+}
+
+.hobby-card:hover .hobby-icon--photo i,
+.hobby-card:focus-within .hobby-icon--photo i {
+  transform: scale(1.08) rotate(-4deg);
+  filter: drop-shadow(0 0 10px rgba(255, 176, 104, 0.36));
 }
 
 @keyframes hobbyPulse {
